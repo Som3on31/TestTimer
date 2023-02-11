@@ -15,10 +15,13 @@ public class MainActivity extends AppCompatActivity {
     long inFuture = 3000;
     boolean isRunning = false;
 
-    Button startButton = (Button) findViewById(R.id.start_button);
+    private final String TEST_WORD = "kek";
 
-    Button stopButton = (Button) findViewById(R.id.stop_button);
-    Button resetButton = (Button) findViewById(R.id.reset_button);
+    Button startButton;
+
+    Button stopButton;
+    Button resetButton;
+
 
 
     @Override
@@ -27,14 +30,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
+        startButton = findViewById(R.id.start_button);
+        stopButton = findViewById(R.id.stop_button);
+        resetButton = findViewById(R.id.reset_button);
+
         new CountDownTimer(inFuture,interval){
 
             public void onTick(long l){
-                tw.setText(l/1000 + " s");
+                String timeLeft = l/1000 + " s";
+                tw.setText(timeLeft);
             }
 
             public void onFinish(){
-                tw.setText("kek");
+                tw.setText(TEST_WORD);
                 isRunning = false;
             }
 
@@ -55,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         resetButton.setOnClickListener(view -> {
 
         });
+
+
     }
 
 
