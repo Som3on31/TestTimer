@@ -10,17 +10,20 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView tw;
-    long interval = 1000;
-    long inFuture = 3000;
-    boolean isRunning = false;
+    //Constant vars here
+    protected final String TEST_WORD = "kek";
+    protected TextView tw;
+    protected long interval = 1000;
+    protected int inFuture = 20*60;
+    protected boolean isRunning = false;
 
-    private final String TEST_WORD = "kek";
+    //Objs
+    CountDownTimer timer;
 
     Button startButton;
-
-    Button stopButton;
-    Button resetButton;
+//    Button stopButton;
+//    Button resetButton;
+//    Button pauseButton;
 
 
 
@@ -29,43 +32,68 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        tw = findViewById(R.id.timer);
 
         startButton = findViewById(R.id.start_button);
-        stopButton = findViewById(R.id.stop_button);
-        resetButton = findViewById(R.id.reset_button);
-
-        new CountDownTimer(inFuture,interval){
-
-            public void onTick(long l){
-                String timeLeft = l/1000 + " s";
-                tw.setText(timeLeft);
-            }
-
-            public void onFinish(){
-                tw.setText(TEST_WORD);
-                isRunning = false;
-            }
-
-        }.start();
 
         startButton.setVisibility(View.VISIBLE);
         startButton.setOnClickListener(view -> {
             if(!isRunning) {
                 isRunning = true;
                 startButton.setVisibility(View.INVISIBLE);
+
+                createTimer(inFuture);
+                timer.start();
             }
-        });
-
-        stopButton.setOnClickListener(view -> {
-            isRunning = false;
-        });
-
-        resetButton.setOnClickListener(view -> {
 
         });
 
+//        stopButton.setOnClickListener(view -> {
+//            final String STOP_TXT = "Timer has stopped";
+//
+//            isRunning = false;
+//            timer.cancel();
+//            tw.setText(STOP_TXT);
+//            startButton.setVisibility(View.VISIBLE);
+//        });
+//
+//        resetButton.setOnClickListener(view -> {
+//
+//        });
+//
+//        pauseButton.setOnClickListener(view -> {
+//            isRunning = false;
+//
+//        });
 
+
+    }
+
+    /**
+     * Creates a timer with the set amount of time in seconds.
+     *
+     *
+     * @param seconds time to be set for the timer
+     */
+    public void createTimer(int seconds){
+        timer = new CountDownTimer(seconds * 1000,interval){
+
+            public void onTick(long l){
+                String timeLeftMinutes = l/60000 + ":";
+
+                long remainingSeconds = (l/1000)%60;
+                String timeLeftSeconds = remainingSeconds < 10 ? "0" + remainingSeconds : Long.toString(remainingSeconds);
+                String timeLeft = timeLeftMinutes + timeLeftSeconds;
+                tw.setText(timeLeft);
+            }
+
+            public void onFinish(){
+                tw.setText(TEST_WORD);
+                isRunning = false;
+                startButton.setVisibility(View.VISIBLE);
+            }
+
+        };
     }
 
 
