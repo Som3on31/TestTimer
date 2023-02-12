@@ -3,4 +3,7 @@
     <string name="start">Start</string>
     <string name="remainingtime">00:00</string>
     <string name="timer">Timer</string>
+    <string name="timericon">TimerIcon</string>
+    <string name="placeholder">Placeholder</string>
+    <string name="placeholder_again">Placeholder again</string>
 </resources>
