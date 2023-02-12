@@ -1,4 +1,5 @@
 <resources>
+    <!--    resources for layout-->
     <string name="app_name">TestTimer</string>
     <string name="start">Start</string>
     <string name="remainingtime">00:00</string>
