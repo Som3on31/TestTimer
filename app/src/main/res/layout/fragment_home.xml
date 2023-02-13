@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/home_bg"
     tools:context=".HomeFragment">
 
     <TextView
@@ -19,47 +20,119 @@
         android:id="@+id/imageButton"
         android:layout_width="125dp"
         android:layout_height="125dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="72dp"
 
-
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="416dp"
         android:contentDescription="@string/timericon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_timer_24"
         tools:layout_marginLeft="50dp"
-        tools:layout_marginTop="80dp" />
+        tools:layout_marginTop="300dp" />
 
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="228dp"
+        android:layout_marginStart="144dp"
 
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="290dp"
+        android:contentDescription="@string/placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.015"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:layout_marginLeft="40dp"
+        tools:layout_marginTop="300dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+
+        android:layout_marginTop="12dp"
+
+        android:layout_marginEnd="12dp"
+        android:contentDescription="@string/placeholder"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:layout_marginLeft="40dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:contentDescription="@string/placeholder"
+
+        app:layout_constraintBottom_toTopOf="@+id/imageButton6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.738"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:layout_marginLeft="40dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+
+        android:layout_marginTop="572dp"
         android:contentDescription="@string/placeholder"
         app:layout_constraintRight_toLeftOf="parent"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background"
-        tools:layout_marginLeft="50dp"
-        tools:layout_marginTop="80dp" />
+        tools:layout_marginLeft="40dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="60dp"
+
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/placeholder"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:layout_marginLeft="40dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="16dp"
+
         android:clickable="true"
-        app:srcCompat="@android:drawable/ic_input_add"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        tools:layout_marginRight="20dp"
-        tools:layout_marginBottom="20dp"
         android:contentDescription="@string/placeholder_again"
-        android:focusable="true" />
+
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:layout_marginBottom="20dp"
+        tools:layout_marginRight="20dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
