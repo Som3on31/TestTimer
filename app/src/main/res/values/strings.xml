@@ -8,4 +8,7 @@
     <string name="placeholder">Placeholder</string>
     <string name="placeholder_again">Placeholder again</string>
     <string name="rest">Rest</string>
+    <string name="points">0</string>
+    <string name="totalpoints">Total points</string>
+    <string name="coupon">Coupon Rewards</string>
 </resources>
