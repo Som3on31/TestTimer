@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9FD2D8"
+    android:background="@drawable/bg_timer"
     tools:context=".MainActivity">
-
+<!--    #9FD2D8-->
     <TextView
         android:id="@+id/main_txt"
         android:layout_width="wrap_content"
@@ -54,34 +54,46 @@
         app:layout_constraintVertical_bias="0.531" />
 
 <!--    menu button-->
+
+    <!--    tip-->
+
     <Button
         android:id="@+id/button"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/btn_circle"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/menu_icon2"
         android:fontFamily="@font/jost"
-        android:text="@string/menu"
+
         android:textColor="#FAF8F8"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    tip-->
     <TextView
         android:id="@+id/textView"
-        android:layout_width="328dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="40dp"
-        android:background="@drawable/tip_box"
-        android:padding="35dp"
-        android:text="Tip! \n\n\t\t\tBlink every 4s "
-        android:textAlignment="textStart"
-        android:textSize="20sp"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="100dp"
+        android:fontFamily="@font/jost"
+        android:text="Tip !"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:fontFamily="@font/jost"
+        android:text="Blink every 4s"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
