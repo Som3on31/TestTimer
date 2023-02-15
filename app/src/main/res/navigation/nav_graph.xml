@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.testtimer.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_restFragment"
+            app:destination="@id/restFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_couponFragment"
+            app:destination="@id/couponFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restFragment"
+        android:name="com.example.testtimer.RestFragment"
+        android:label="RestFragment"
+        tools:layout="@layout/fragment_rest">
+
+        <action
+            android:id="@+id/action_restFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/couponFragment"
+        android:name="com.example.testtimer.CouponFragment"
+        android:label="CouponFragment"
+        tools:layout="@layout/fragment_coupon">
+        <action
+            android:id="@+id/action_couponFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
