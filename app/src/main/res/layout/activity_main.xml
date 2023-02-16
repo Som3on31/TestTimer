@@ -6,13 +6,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_timer"
     tools:context=".MainActivity">
+<!--    #9FD2D8-->
 
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-<!--    <include layout="@layout/content_main"/>-->
+    <include layout="@layout/content_main"/>
 
 <!--    <TextView-->
 <!--        android:id="@+id/main_txt"-->
@@ -60,9 +56,9 @@
 <!--        app:layout_constraintTop_toTopOf="parent"-->
 <!--        app:layout_constraintVertical_bias="0.531" />-->
 
-<!--&lt;!&ndash;&lt;!&ndash;    menu button&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    menu button&ndash;&gt;-->
 <!--    <Button-->
-<!--        android:id="@+id/btn_menu"-->
+<!--        android:id="@+id/button"-->
 <!--        android:layout_width="40dp"-->
 <!--        android:layout_height="40dp"-->
 <!--        android:layout_marginStart="24dp"-->
@@ -71,7 +67,7 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--&lt;!&ndash;    &lt;!&ndash;    tip&ndash;&gt;&ndash;&gt;-->
+<!--    &lt;!&ndash;    tip&ndash;&gt;-->
 <!--    <TextView-->
 <!--        android:id="@+id/textView"-->
 <!--        android:layout_width="60dp"-->

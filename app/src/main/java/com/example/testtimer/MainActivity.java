@@ -11,11 +11,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-//import com.example.testtimer.databinding.ActivityMainBinding;
+import com.example.testtimer.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-//    private ActivityMainBinding binding;
+    private ActivityMainBinding binding;
 
 //    //Constant vars here
 //    protected final String TEST_WORD = "kek";
@@ -35,16 +35,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
 
-        getSupportFragmentManager().beginTransaction().add(R.id.container, new HomeFragment()).commit();
-
-//        binding = ActivityMainBinding.inflate(getLayoutInflater());
-//        setContentView(binding.getRoot());
-////
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 //
-//        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
-//        NavController navController = navHostFragment.getNavController();
+
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
+        NavController navController = navHostFragment.getNavController();
 
 
 //        tw = findViewById(R.id.timer);
