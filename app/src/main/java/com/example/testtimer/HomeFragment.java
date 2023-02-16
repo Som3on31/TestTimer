@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
             @Override
                 public void onClick(View view) {
                     NavHostFragment.findNavController(HomeFragment.this)
-                            .navigate(R.id.action_homeFragment_to_restFragment);
+                            .navigate(R.id.action_homeFragment_to_timerFragment);
                 }
             }
         );

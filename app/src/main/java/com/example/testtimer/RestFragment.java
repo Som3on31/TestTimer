@@ -18,7 +18,7 @@ public class RestFragment extends Fragment {
     private FragmentRestBinding binding;
 
     protected long interval = 1000;
-    protected int inFuture = 20 * 60;
+    protected int inFuture = 20;
     //    protected int inFuture = 5;
     protected boolean isRunning = false;
 
