@@ -90,10 +90,11 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_margin="10dp"
+                    android:src="@drawable/mcdonalds_logo"
+                    android:scaleType="fitCenter"
                     app:layout_constraintStart_toStartOf="@id/linearLayout"
-                    tools:layout_editor_absoluteX="33dp"
-                    tools:layout_editor_absoluteY="278dp"
-                    tools:src="@tools:sample/avatars" />
+
+                     />
 
                 <TextView
                     android:id="@+id/textView6"
@@ -162,9 +163,10 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_margin="10dp"
+                    android:src="@drawable/dq_logo"
                     tools:layout_editor_absoluteX="33dp"
                     tools:layout_editor_absoluteY="278dp"
-                    tools:src="@tools:sample/avatars" />
+                     />
 
                 <TextView
                     android:id="@+id/textView8"
@@ -233,9 +235,10 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_margin="10dp"
+                    android:src="@drawable/thepizzacompany_logo"
                     tools:layout_editor_absoluteX="33dp"
                     tools:layout_editor_absoluteY="278dp"
-                    tools:src="@tools:sample/avatars" />
+                     />
 
                 <TextView
                     android:id="@+id/textView10"
@@ -304,9 +307,10 @@
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_margin="10dp"
+                    android:src="@drawable/fuku_logo"
                     tools:layout_editor_absoluteX="33dp"
                     tools:layout_editor_absoluteY="278dp"
-                    tools:src="@tools:sample/avatars" />
+                     />
 
                 <TextView
                     android:id="@+id/textView12"
