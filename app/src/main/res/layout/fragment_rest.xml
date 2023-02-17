@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/jost"
-        android:text="@string/remainingtime"
+        android:text="@string/resttime"
         android:textColor="@android:color/background_dark"
         android:textSize="70sp"
         app:layout_constraintBottom_toBottomOf="parent"

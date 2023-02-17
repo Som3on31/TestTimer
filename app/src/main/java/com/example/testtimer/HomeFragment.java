@@ -30,13 +30,21 @@ public class HomeFragment extends Fragment {
 
 
         //buttons on home screen
-        binding.imageButton.setOnClickListener(new View.OnClickListener() {
+        binding.imgTimer.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View view) {
                     NavHostFragment.findNavController(HomeFragment.this)
                             .navigate(R.id.action_homeFragment_to_timerFragment);
                 }
             }
+        );
+        binding.imgCoupon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(HomeFragment.this)
+                        .navigate(R.id.action_homeFragment_to_couponFragment);
+            }
+        }
         );
 
     }
