@@ -12,25 +12,31 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_couponFragment"
-            app:destination="@id/couponFragment" />
+            app:destination="@id/couponFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
         <action
             android:id="@+id/action_homeFragment_to_timerFragment"
-            app:destination="@id/timerFragment" />
+            app:destination="@id/timerFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
         <action
             android:id="@+id/action_homeFragment_to_blueLightFragment"
-            app:destination="@id/blueLightFragment" />
+            app:destination="@id/blueLightFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
         <action
             android:id="@+id/action_homeFragment_to_distanceFragment"
             app:destination="@id/distanceFragment" />
         <action
             android:id="@+id/action_homeFragment_to_distanceFragment2"
-            app:destination="@id/distanceFragment" />
+            app:destination="@id/distanceFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
         <action
             android:id="@+id/action_homeFragment_to_summaryFragment"
-            app:destination="@id/summaryFragment" />
+            app:destination="@id/summaryFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
     </fragment>
     <fragment
         android:id="@+id/restFragment"
@@ -40,7 +46,8 @@
 
         <action
             android:id="@+id/action_restFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/couponFragment"
@@ -49,7 +56,8 @@
         tools:layout="@layout/fragment_coupon">
         <action
             android:id="@+id/action_couponFragment_to_homeFragment2"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/timerFragment"
@@ -61,7 +69,8 @@
             app:destination="@id/restFragment" />
         <action
             android:id="@+id/action_timerFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/blueLightFragment"
@@ -70,7 +79,8 @@
         tools:layout="@layout/fragment_blue_light" >
         <action
             android:id="@+id/action_blueLightFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/distanceFragment"
@@ -79,7 +89,8 @@
         tools:layout="@layout/fragment_distance" >
         <action
             android:id="@+id/action_distanceFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -88,7 +99,8 @@
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/summaryFragment"
@@ -97,6 +109,7 @@
         tools:layout="@layout/fragment_summary" >
         <action
             android:id="@+id/action_summaryFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/nav_default_exit_anim" />
     </fragment>
 </navigation>
