@@ -16,6 +16,21 @@
         <action
             android:id="@+id/action_homeFragment_to_timerFragment"
             app:destination="@id/timerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_blueLightFragment"
+            app:destination="@id/blueLightFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_distanceFragment"
+            app:destination="@id/distanceFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_distanceFragment2"
+            app:destination="@id/distanceFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
     </fragment>
     <fragment
         android:id="@+id/restFragment"
@@ -46,6 +61,42 @@
             app:destination="@id/restFragment" />
         <action
             android:id="@+id/action_timerFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/blueLightFragment"
+        android:name="com.example.testtimer.BlueLightFragment"
+        android:label="fragment_blue_light"
+        tools:layout="@layout/fragment_blue_light" >
+        <action
+            android:id="@+id/action_blueLightFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/distanceFragment"
+        android:name="com.example.testtimer.DistanceFragment"
+        android:label="fragment_distance"
+        tools:layout="@layout/fragment_distance" >
+        <action
+            android:id="@+id/action_distanceFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.testtimer.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.example.testtimer.SummaryFragment"
+        android:label="fragment_summary"
+        tools:layout="@layout/fragment_summary" >
+        <action
+            android:id="@+id/action_summaryFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
