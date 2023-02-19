@@ -5,13 +5,11 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.testtimer.databinding.FragmentRestBinding;
 import com.example.testtimer.databinding.FragmentTimerBinding;
 
 public class TimerFragment extends Fragment {
@@ -35,8 +33,6 @@ public class TimerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view,savedInstanceState);
 
-        super.onViewCreated(view,savedInstanceState);
-
         binding.timer.findViewById(R.id.timer);
 
         binding.startButton.setVisibility(View.VISIBLE);
@@ -51,15 +47,14 @@ public class TimerFragment extends Fragment {
         });
 
         binding.button.setVisibility(View.VISIBLE);
-        binding.button.setOnClickListener(View -> {
-            NavHostFragment.findNavController(TimerFragment.this)
-                    .navigate(R.id.action_timerFragment_to_homeFragment);
-        });
+        binding.button.setOnClickListener(View -> NavHostFragment.findNavController(TimerFragment.this)
+                .navigate(R.id.action_timerFragment_to_homeFragment));
     }
 
     public void onDestroyView() {
         super.onDestroyView();
 
+        binding = null;
     }
 
     //methods for time here
