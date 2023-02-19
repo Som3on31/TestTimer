@@ -82,7 +82,7 @@ public class RestFragment extends Fragment {
             public void onFinish() {
 //                tw.setText(TEST_WORD);
                 isRunning = false;
-                binding.startButton.setVisibility(View.VISIBLE);
+                if (binding!=null) binding.startButton.setVisibility(View.VISIBLE);
             }
 
         };
