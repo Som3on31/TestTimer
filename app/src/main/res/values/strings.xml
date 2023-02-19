@@ -5,7 +5,12 @@
     <string name="remainingtime">00:10</string>
     <string name="resttime">00:20</string>
     <string name="timer">Timer</string>
-    <string name="timericon">TimerIcon</string>
+    <string name="timericon">Timer</string>
+    <string name="blficon">Blue light filter</string>
+    <string name="distanceicon">Calibrate distance</string>
+    <string name="couponicon">Coupon rewards</string>
+    <string name="summaryicon">Summary</string>
+    <string name="settingicon">Setting</string>
     <string name="placeholder">Placeholder</string>
     <string name="placeholder_again">Placeholder again</string>
     <string name="rest">Rest</string>

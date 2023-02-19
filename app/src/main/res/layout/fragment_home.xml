@@ -37,46 +37,63 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/total_points"
-        android:layout_width="156dp"
-        android:layout_height="52dp"
-        android:layout_margin="40dp"
-        android:fontFamily="@font/jost"
-        android:text="@string/totalpoints"
-        android:textSize="30sp"
-        android:textColor="@color/black"
+    <ImageView
+        android:id="@+id/img_badge"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="84dp"
+        android:src="@drawable/eye1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/points"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/layout_totalpts"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/jost"
-        android:text="@string/points"
-        android:textSize="40sp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total_points"
-        app:layout_constraintVertical_bias="0.011" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/total_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/jost"
+            android:text="@string/totalpoints"
+            android:textColor="#3F4253"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.203"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="185dp" />
+
+        <TextView
+            android:id="@+id/points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/jost"
+            android:text="@string/points"
+            android:textColor="#3F4253"
+            android:textSize="25sp"
+            app:layout_constraintStart_toEndOf="@id/total_points" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layout_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.90">
 
         <LinearLayout
             android:id="@+id/layout_menu_inside1"
@@ -86,33 +103,83 @@
             app:layout_constraintStart_toStartOf="@id/layout_menu"
             app:layout_constraintTop_toTopOf="@id/layout_menu">
 
-            <ImageButton
-                android:id="@+id/img_timer"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                android:background="#00FFFFFF"
-                android:contentDescription="@string/timericon"
-                android:scaleType="fitCenter"
-                android:src="@drawable/clock"
-                app:layout_constraintStart_toStartOf="@id/layout_menu_inside1"
-                app:layout_constraintTop_toTopOf="@id/layout_menu_inside1"
-                />
+            <LinearLayout
+                android:id="@+id/layout_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/img_coupon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
-                android:background="#00FFFFFF"
-                android:scaleType="fitCenter"
-                android:src="@drawable/coupon_icon"
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    card_view:cardCornerRadius="30dp"
+                    card_view:cardBackgroundColor="#F323A86A"
+                    >
 
-                app:layout_constraintHorizontal_bias="0.013"
-                app:layout_constraintStart_toStartOf="@+id/img_timer"
-                app:layout_constraintTop_toTopOf="@id/layout_menu_inside1"
-                />
+                    <ImageButton
+                        android:id="@+id/img_timer"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:background="#00FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/clock"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="5dp"
+                        app:layout_constraintStart_toStartOf="@id/layout_menu_inside1"
+                        app:layout_constraintTop_toTopOf="@id/layout_menu_inside1" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/jost"
+                    android:text="@string/timericon"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    card_view:cardCornerRadius="30dp"
+                    card_view:cardBackgroundColor="#F323A86A">
+
+                    <ImageButton
+                        android:id="@+id/img_distance"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:background="#00FFFFFF"
+                        android:contentDescription="@string/placeholder"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/distance"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="5dp"/>
+                </androidx.cardview.widget.CardView>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/jost"
+                    android:text="@string/distanceicon"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
 
         </LinearLayout>
 
@@ -121,38 +188,75 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="5dp"
             app:layout_constraintStart_toStartOf="@id/layout_menu"
             app:layout_constraintTop_toTopOf="@id/layout_menu">
 
-            <ImageButton
-                android:id="@+id/img_blf"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                android:background="#00FFFFFF"
-                android:contentDescription="@string/placeholder"
-                android:scaleType="fitCenter"
-                android:src="@drawable/blf"
+            <LinearLayout
+                android:id="@+id/layout_blf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                app:layout_constraintHorizontal_bias="0.396"
-                app:layout_constraintStart_toStartOf="@id/layout_menu"
-                app:layout_constraintTop_toBottomOf="@+id/layout_menu_inside1" />
+                <androidx.cardview.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    card_view:cardCornerRadius="30dp"
+                    card_view:cardBackgroundColor="#F323A86A">
 
-            <ImageButton
-                android:id="@+id/img_summary"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="20dp"
-                android:background="#00FFFFFF"
-                android:contentDescription="@string/placeholder"
-                android:scaleType="fitCenter"
-                android:src="@drawable/summary_icon"
+                    <ImageButton
+                        android:id="@+id/img_blf"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:background="#00FFFFFF"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/blf"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="3dp"/>
+                </androidx.cardview.widget.CardView>
 
-                app:layout_constraintHorizontal_bias="0.726"
-                app:layout_constraintStart_toStartOf="@id/img_blf"
-                app:layout_constraintVertical_bias="0.482"
-                />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/jost"
+                    android:text="@string/blficon"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_coupon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/img_coupon"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="#00FFFFFF"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/coupon_icon"
+
+                    app:layout_constraintHorizontal_bias="0.013"
+                    app:layout_constraintStart_toStartOf="@+id/img_timer"
+                    app:layout_constraintTop_toTopOf="@id/layout_menu_inside1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/jost"
+                    android:text="@string/couponicon"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
 
         </LinearLayout>
 
@@ -161,44 +265,63 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="5dp"
             app:layout_constraintStart_toStartOf="@id/layout_menu"
             app:layout_constraintTop_toTopOf="@id/layout_menu_inside2">
 
-            <ImageButton
-                android:id="@+id/img_distance"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                android:background="#00FFFFFF"
-                android:contentDescription="@string/placeholder"
-                android:scaleType="fitCenter"
-                android:src="@drawable/distance"
+            <LinearLayout
+                android:id="@+id/layout_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                app:layout_constraintStart_toStartOf="@id/layout_menu_inside3"
+                <ImageButton
+                    android:id="@+id/img_summary"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="#00FFFFFF"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/summary_icon" />
 
-                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/jost"
+                    android:text="@string/summaryicon"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/img_support"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="25dp"
-                android:background="#00FFFFFF"
-                android:contentDescription="@string/placeholder"
-                android:scaleType="fitCenter"
-                android:src="@drawable/support_icon"
+            <LinearLayout
+                android:id="@+id/layout_support"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:orientation="vertical">
 
-                app:layout_constraintHorizontal_bias="0.714"
-                app:layout_constraintStart_toEndOf="@+id/img_distance"
-                />
+                <ImageButton
+                    android:id="@+id/img_support"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="#00FFFFFF"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/support_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/jost"
+                    android:text="@string/settingicon"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
 
         </LinearLayout>
 
     </LinearLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
