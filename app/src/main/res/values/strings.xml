@@ -25,4 +25,10 @@
     <string name="moveout">Please move your face OUT</string>
     <string name="distance">20.00</string>
     <string name="cm">cm</string>
+    <string name="history">History</string>
+    <string name="totalScreenTime">Total screen time</string>
+    <string name="totalRestTime">Total rest time</string>
+    <string name="ttScreenTime">3.40</string>
+    <string name="ttRestTime">1.30</string>
+    <string name="hr">hr</string>
 </resources>
