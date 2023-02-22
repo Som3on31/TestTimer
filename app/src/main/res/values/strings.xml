@@ -11,7 +11,7 @@
     <string name="couponicon">Coupon rewards</string>
     <string name="summaryicon">Summary</string>
     <string name="settingicon">Setting</string>
-    <string name="placeholder">Placeholder</string>
+    <string name="norest">No rest</string>
     <string name="placeholder_again">Placeholder again</string>
     <string name="rest">Rest</string>
     <string name="points">0</string>
@@ -20,4 +20,5 @@
     <string name="redeem">Redeem</string>
     <string name="username">user1</string>
     <string name="logout">Logout</string>
+    <string name="berry1">น้องเบอร์รีตาล้า</string>
 </resources>
