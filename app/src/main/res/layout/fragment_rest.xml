@@ -39,6 +39,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.412" />
 
+    <!--    menu button-->
     <Button
         android:id="@+id/start_button"
         android:layout_width="85dp"
@@ -49,11 +50,27 @@
         android:text="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.334"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.531" />
 
-    <!--    menu button-->
+    <Button
+        android:id="@+id/btn_noRest"
+        android:layout_width="85dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/btn_no_rest"
+        android:fontFamily="@font/jost"
+        android:text="@string/norest"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.531" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="40dp"
