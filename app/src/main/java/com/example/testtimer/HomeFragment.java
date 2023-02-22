@@ -47,6 +47,42 @@ public class HomeFragment extends Fragment {
         }
         );
 
+        binding.imgDistance.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 NavHostFragment.findNavController(HomeFragment.this)
+                         .navigate(R.id.action_homeFragment_to_distanceFragment);
+             }
+         }
+        );
+
+        binding.imgBlf.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 NavHostFragment.findNavController(HomeFragment.this)
+                         .navigate(R.id.action_homeFragment_to_blueLightFragment);
+             }
+         }
+        );
+
+        binding.imgSummary.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                  NavHostFragment.findNavController(HomeFragment.this)
+                          .navigate(R.id.action_homeFragment_to_summaryFragment);
+              }
+          }
+        );
+
+        binding.imgSetting.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                  NavHostFragment.findNavController(HomeFragment.this)
+                          .navigate(R.id.action_homeFragment_to_settingsFragment);
+              }
+          }
+        );
+
     }
 
     public void onDestroyView() {
