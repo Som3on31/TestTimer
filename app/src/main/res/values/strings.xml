@@ -21,4 +21,8 @@
     <string name="username">user1</string>
     <string name="logout">Logout</string>
     <string name="berry1">น้องเบอร์รีตาล้า</string>
+    <string name="movein">Please move your face IN</string>
+    <string name="moveout">Please move your face OUT</string>
+    <string name="distance">20.00</string>
+    <string name="cm">cm</string>
 </resources>
