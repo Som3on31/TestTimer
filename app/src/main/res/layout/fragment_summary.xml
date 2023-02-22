@@ -182,7 +182,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="30dp"
                     app:layout_constraintStart_toEndOf="@id/day1"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout"
                     >
@@ -191,18 +191,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/scr1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:fontFamily="@font/jost"
-                            android:text="@string/totalScreenTime"
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/screencircle"/>
 
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.2"
-                            />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -225,17 +220,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/rst1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:fontFamily="@font/jost"
-                            android:text="@string/totalRestTime"
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.2"
-                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/restcircle"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -287,7 +277,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="30dp"
                     app:layout_constraintStart_toEndOf="@id/day2"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout"
                     >
@@ -296,18 +286,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/scr2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:fontFamily="@font/jost"
-                            android:text="@string/totalScreenTime"
-
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.2"
-                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/screencircle"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -330,17 +314,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/rst2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:fontFamily="@font/jost"
-                            android:text="@string/totalRestTime"
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.2"
-                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/restcircle"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -392,7 +371,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="30dp"
                     app:layout_constraintStart_toEndOf="@id/day3"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout"
                     >
@@ -401,18 +380,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/scr3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:fontFamily="@font/jost"
-                            android:text="@string/totalScreenTime"
-
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.2"
-                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/screencircle"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -435,17 +408,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/rst3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:fontFamily="@font/jost"
-                            android:text="@string/totalRestTime"
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.2"
-                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/restcircle"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -497,7 +465,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="30dp"
                     app:layout_constraintStart_toEndOf="@id/day4"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout"
                     >
@@ -506,18 +474,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/scr4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:fontFamily="@font/jost"
-                            android:text="@string/totalScreenTime"
-
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.2"
-                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/screencircle"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -540,17 +502,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/rst4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:fontFamily="@font/jost"
-                            android:text="@string/totalRestTime"
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.2"
-                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/restcircle"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -600,7 +557,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="30dp"
                     app:layout_constraintStart_toEndOf="@id/day5"
                     app:layout_constraintTop_toBottomOf="@id/linearLayout"
                     >
@@ -609,18 +566,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/scr5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:fontFamily="@font/jost"
-                            android:text="@string/totalScreenTime"
-
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.2"
-                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/screencircle"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -643,17 +594,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <TextView
-                            android:id="@+id/rst5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:fontFamily="@font/jost"
-                            android:text="@string/totalRestTime"
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.2"
-                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="10dp"
+                            android:src="@drawable/restcircle"/>
 
                         <TextView
                             android:layout_width="wrap_content"
