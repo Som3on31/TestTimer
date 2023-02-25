@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A4AAA3"
+    android:background="#9CC396"
     tools:context=".SettingsFragment">
 
     <!--    menu button-->
@@ -19,69 +19,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/layout_settime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
-        android:gravity="center"
-        android:padding="15dp"
-        android:background="#80FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/set"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/settimer"
-            android:textSize="25sp"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/mins"
-            android:layout_marginStart="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="2"
-            android:inputType="number"
-            android:text="20"
-            android:fontFamily="@font/jost"
-            android:textSize="20sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text=":"
-            android:textSize="25sp" />
-
-        <EditText
-            android:id="@+id/secs"
-            android:layout_marginStart="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLength="2"
-            android:inputType="number"
-            android:text="00"
-            android:fontFamily="@font/jost"
-            android:textSize="20sp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/layout_setrest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="120dp"
+        android:background="#80FFFFFF"
         android:gravity="center"
         android:padding="15dp"
-        android:background="#80FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_settime">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/set2"
@@ -89,18 +37,18 @@
             android:layout_height="wrap_content"
             android:text="@string/setrest"
             android:textSize="25sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/mins2"
-            android:layout_marginStart="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLength="2"
-            android:inputType="number"
-            android:text="00"
+            android:layout_marginStart="20dp"
             android:fontFamily="@font/jost"
-            android:textSize="20sp"/>
+            android:inputType="number"
+            android:maxLength="2"
+            android:text="00"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -111,15 +59,15 @@
 
         <EditText
             android:id="@+id/secs2"
-            android:layout_marginStart="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLength="2"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/jost"
             android:inputType="number"
 
+            android:maxLength="2"
             android:text="20"
-            android:fontFamily="@font/jost"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
     </LinearLayout>
 
