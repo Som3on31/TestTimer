@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +17,10 @@ import com.example.testtimer.databinding.FragmentSettingsBinding;
 public class SettingsFragment extends Fragment {
     FragmentSettingsBinding binding;
 
-
-
-    public SettingsFragment() {
-        // Required empty public constructor
-    }
+    String timer_min;
+    String timer_secs;
+    String rest_min;
+    String rest_secs;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +42,29 @@ public class SettingsFragment extends Fragment {
                }
            }
         );
+
+        binding.mins.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+//                String kek = s.
+            }
+        });
+
+//        timer_min = binding.mins.getText();
+//        timer_secs = binding.secs.getText();
+//        rest_min = binding.mins2.getText();
+//        rest_secs = binding.secs2.getText();
 
     }
 
