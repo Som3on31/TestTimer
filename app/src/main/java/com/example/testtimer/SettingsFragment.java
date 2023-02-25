@@ -17,11 +17,6 @@ import com.example.testtimer.databinding.FragmentSettingsBinding;
 public class SettingsFragment extends Fragment {
     FragmentSettingsBinding binding;
 
-    String timer_min;
-    String timer_secs;
-    String rest_min;
-    String rest_secs;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

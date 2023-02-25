@@ -1,5 +1,7 @@
 package com.example.testtimer;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,10 +14,14 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-    //Default settings set here
-    public static final int DEFAULT_REST_TIME = 20;
-    public static final int DEFAULT_MIN_DIST = 30;
-    public static final boolean DEFAULT_PLACEHOLDER = true;
+    protected Context deviceContext;
+    protected static SharedPreferences preference;
+
+
+//    //Default settings set here
+//    public static final int DEFAULT_REST_TIME = 20;
+//    public static final int DEFAULT_MIN_DIST = 30;
+//    public static final boolean DEFAULT_PLACEHOLDER = true;
 
 
     @Override
@@ -31,7 +37,15 @@ public class MainActivity extends AppCompatActivity {
         assert navHostFragment != null;
         NavController navController = navHostFragment.getNavController();
 
+        deviceContext = getApplicationContext();
+
+        //get preference
+        final String prefName = "app_settings";
+        final int mode = MODE_PRIVATE;
+        preference = deviceContext.getSharedPreferences(prefName,mode);
     }
+
+
 
 
 }

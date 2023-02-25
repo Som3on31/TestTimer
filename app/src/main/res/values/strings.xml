@@ -35,4 +35,5 @@
     <string name="setrest">Set Rest</string>
     <string name="contact">Contact us:</string>
     <string name="email">contact_us@gmail.com</string>
+    <string name="toggle_blue_light">Toggle blue light</string>
 </resources>
