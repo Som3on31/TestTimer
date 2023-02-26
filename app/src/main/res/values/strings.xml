@@ -36,4 +36,11 @@
     <string name="contact">Contact us:</string>
     <string name="email">contact_us@gmail.com</string>
     <string name="toggle_blue_light">Toggle blue light</string>
+    <string name="er">Digital Eyestrain Relief (ER)</string>
+    <string name="forgot">Forgot password?</string>
+    <string name="reg_txt">Don\'t have an account?</string>
+    <string name="reg_txt_btn">Register now</string>
+    <string name="submit">SUBMIT</string>
+    <string name="loginUsername">username</string>
+    <string name="loginPassword">password</string>
 </resources>
