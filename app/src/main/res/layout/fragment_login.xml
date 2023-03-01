@@ -50,19 +50,20 @@
     <TextView
         android:id="@+id/forgot"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/login_password"
         android:layout_marginTop="3dp"
         android:layout_marginStart="110dp"
         android:clickable="true"
         android:text="@string/forgot"
+        android:textSize="15sp"
         android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:layout_below="@id/forgot"
         android:text="@string/submit"
         android:textColor="@color/white"
@@ -75,26 +76,28 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_below="@id/submit"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="90dp"
         >
 
         <TextView
             android:id="@+id/register1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:fontFamily="@font/jost"
             android:text="@string/reg_txt"
+            android:gravity="center_vertical"
             android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/register2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="5dp"
             android:fontFamily="@font/jost"
             android:text="@string/reg_txt_btn"
             android:textColor="#0D45EF"
             android:clickable="true"
+            android:gravity="center_vertical"
 
             app:layout_constraintStart_toEndOf="@id/register" />
     </LinearLayout>
