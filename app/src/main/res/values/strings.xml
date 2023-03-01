@@ -40,7 +40,18 @@
     <string name="forgot">Forgot password?</string>
     <string name="reg_txt">Don\'t have an account?</string>
     <string name="reg_txt_btn">Register now</string>
+    <string name="register">Register</string>
+    <string name="registration">Registration</string>
     <string name="submit">SUBMIT</string>
     <string name="loginUsername">username</string>
     <string name="loginPassword">password</string>
+    <string name="reg_username">Username : </string>
+    <string name="reg_password">Password : </string>
+    <string name="reg_fname">First name : </string>
+    <string name="reg_lname">Last name : </string>
+    <string name="reg_email">Email : </string>
+    <string name="reg_bd">Birthday : </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

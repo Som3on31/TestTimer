@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#56C3F4"
+    tools:context=".RegisterFragment">
+
+    <TextView
+        android:id="@+id/registration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/jost"
+        android:text="@string/registration"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_rect"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.216">
+
+        <LinearLayout
+            android:id="@+id/layout_fname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/reg_fname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jost"
+                android:text="@string/reg_fname"
+                android:textSize="15sp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edit_fname"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/jost"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:hint="Enter your first name"
+                android:textColorHint="#65000000"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_lname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/reg_lname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jost"
+                android:text="@string/reg_lname"
+                android:textSize="15sp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edit_lname"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/jost"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:hint="Enter your last name"
+                android:textColorHint="#65000000"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/reg_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jost"
+                android:text="@string/reg_username"
+                android:textSize="15sp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edit_user"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/jost"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:hint="Enter your username"
+                android:textColorHint="#65000000"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/reg_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jost"
+                android:text="@string/reg_password"
+                android:textSize="15sp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edit_password"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/jost"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:hint="Enter your password"
+                android:textColorHint="#65000000"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/reg_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jost"
+                android:text="@string/reg_email"
+                android:textSize="15sp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edit_email"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="35dp"
+                android:fontFamily="@font/jost"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:hint="Enter your email"
+                android:textColorHint="#65000000"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_bd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/reg_bd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jost"
+                android:text="@string/reg_bd"
+                android:textSize="15sp"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edit_bd"
+                android:layout_width="125dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="18dp"
+                android:fontFamily="@font/jost"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:hint="DD/MM/YYYY"
+                android:textColorHint="#65000000"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_round_rect"
+        android:fontFamily="@font/jost"
+        android:text="@string/register"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintVertical_bias="0.126" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
