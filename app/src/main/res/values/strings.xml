@@ -45,6 +45,8 @@
     <string name="submit">SUBMIT</string>
     <string name="loginUsername">username</string>
     <string name="loginPassword">password</string>
+    <string name="newPassword">New password : </string>
+    <string name="confirmPassword">Confirm password : </string>
     <string name="reg_username">Username : </string>
     <string name="reg_password">Password : </string>
     <string name="reg_fname">First name : </string>
