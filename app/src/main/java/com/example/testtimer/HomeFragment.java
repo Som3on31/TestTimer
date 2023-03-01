@@ -83,6 +83,12 @@ public class HomeFragment extends Fragment {
           }
         );
 
+        //login section
+        binding.logout.setOnClickListener(View -> {
+            NavHostFragment.findNavController(HomeFragment.this)
+                    .navigate(R.id.action_homeFragment_to_loginFragment);
+        });
+
     }
 
     public void onDestroyView() {
