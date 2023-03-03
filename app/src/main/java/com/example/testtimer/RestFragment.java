@@ -1,5 +1,9 @@
 package com.example.testtimer;
 
+import static com.example.testtimer.MainActivity.DEFAULT_REST_TIME_SECS;
+import static com.example.testtimer.MainActivity.REST_TIME_TEXT;
+import static com.example.testtimer.MainActivity.preference;
+
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -18,8 +22,8 @@ public class RestFragment extends Fragment {
     private FragmentRestBinding binding;
 
     protected long interval = 1000;
-    protected int inFuture = 20;
-    //    protected int inFuture = 5;
+    protected int inFuture = preference.getInt(REST_TIME_TEXT,DEFAULT_REST_TIME_SECS);
+//    //    protected int inFuture = 5;
     protected boolean isRunning = false;
 
     private CountDownTimer timer;
@@ -53,6 +57,9 @@ public class RestFragment extends Fragment {
             NavHostFragment.findNavController(RestFragment.this)
                     .navigate(R.id.action_restFragment_to_homeFragment);
         });
+
+        String time = getTimer(preference.getInt(REST_TIME_TEXT,DEFAULT_REST_TIME_SECS) * interval);
+        binding.timer.setText(time);
     }
 
     public void onDestroyView() {
@@ -70,12 +77,7 @@ public class RestFragment extends Fragment {
         timer = new CountDownTimer(seconds * 1000L, interval) {
 
             public void onTick(long l) {
-                long remainingMinutes = l / 60000;
-                String timeLeftMinutes = makeNumTwoDigits(remainingMinutes) + ":";
-
-                long remainingSeconds = (l / 1000) % 60;
-                String timeLeftSeconds = makeNumTwoDigits(remainingSeconds);
-                String timeLeft = timeLeftMinutes + timeLeftSeconds;
+                String timeLeft = getTimer(l);
                 if (binding != null) binding.timer.setText(timeLeft);
             }
 
@@ -97,5 +99,15 @@ public class RestFragment extends Fragment {
     private String makeNumTwoDigits(long l) {
         l %= 100;
         return l < 10 ? "0" + l : Long.toString(l);
+    }
+
+    private String getTimer(long l){
+        long remainingMinutes = l / 60000;
+        String timeLeftMinutes = makeNumTwoDigits(remainingMinutes) + ":";
+
+        long remainingSeconds = (l / 1000) % 60;
+        String timeLeftSeconds = makeNumTwoDigits(remainingSeconds);
+
+        return timeLeftMinutes + timeLeftSeconds;
     }
 }
