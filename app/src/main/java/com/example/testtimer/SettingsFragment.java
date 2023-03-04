@@ -58,15 +58,31 @@ public class SettingsFragment extends Fragment {
                         0 : Integer.parseInt(s.toString());
                 SharedPreferences.Editor editor = preference.edit();
 
-                if(seconds > DEFAULT_REST_TIME_SECS || seconds <= 0) {
+                if(seconds > DEFAULT_REST_TIME_SECS || (seconds <= 0 && s.toString().equals(BLANK))) {
                     seconds = seconds <= 0 ? 0 : DEFAULT_REST_TIME_SECS;
 
+                    //TODO: Find a better solution to this. This way is very inefficient.
+                    int finalSeconds = seconds;
+                    binding.secs2.setOnFocusChangeListener((v, hasFocus) -> {
+                        if (!hasFocus){
+                            binding.secs2.removeTextChangedListener(this);
+                            binding.secs2.setText(makeNumTwoDigits(finalSeconds));
+                            binding.secs2.addTextChangedListener(this);
+                        }
+                    });
+
+//                    System.out.println("Focus: " + focused);
+//                    if (!focused){
+//                        binding.secs2.removeTextChangedListener(this);
+//                        binding.secs2.setText(makeNumTwoDigits(seconds));
+//                        binding.secs2.addTextChangedListener(this);
+//                    }
                 }
 
                 editor.putInt(REST_TIME_TEXT,seconds);
                 editor.apply();
 
-//                binding.secs2.setText(makeNumTwoDigits(seconds));
+
             }
         };
         binding.secs2.addTextChangedListener(secondsWatcher);
