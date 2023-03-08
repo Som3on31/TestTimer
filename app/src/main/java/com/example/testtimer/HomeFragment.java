@@ -38,6 +38,10 @@ public class HomeFragment extends Fragment {
                 }
             }
         );
+
+//        binding.imgTimer.setAlpha(0f);
+//        binding.imgTimer.animate().alpha(1f).setDuration(1500);
+
         binding.imgCoupon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,6 +91,14 @@ public class HomeFragment extends Fragment {
         binding.logout.setOnClickListener(View -> {
             NavHostFragment.findNavController(HomeFragment.this)
                     .navigate(R.id.action_homeFragment_to_loginFragment);
+        });
+
+        binding.imgBadge.setOnClickListener(new View.OnClickListener()  {
+            @Override
+            public void onClick(View view) {
+                DialogBerryFragment dialogBerryFragment = new DialogBerryFragment();
+                dialogBerryFragment.show(getActivity().getSupportFragmentManager(), "description");
+            }
         });
 
     }
