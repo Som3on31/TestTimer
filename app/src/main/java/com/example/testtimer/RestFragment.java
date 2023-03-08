@@ -52,6 +52,11 @@ public class RestFragment extends Fragment {
             }
         });
 
+        binding.btnNoRest.setOnClickListener(View -> {
+            NavHostFragment.findNavController(RestFragment.this)
+                    .navigate(R.id.action_restFragment_to_timerFragment);
+        });
+
         binding.button.setVisibility(View.VISIBLE);
         binding.button.setOnClickListener(View -> {
             NavHostFragment.findNavController(RestFragment.this)
