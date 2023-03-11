@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.example.testtimer.databinding.FragmentDialogBerryBinding;
-import com.example.testtimer.databinding.FragmentDialogCouponBinding;
 
 public class DialogBerryFragment extends DialogFragment {
 
