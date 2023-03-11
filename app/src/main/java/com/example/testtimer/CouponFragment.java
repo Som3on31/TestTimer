@@ -18,6 +18,8 @@ import com.example.testtimer.databinding.FragmentRestBinding;
 public class CouponFragment extends Fragment {
 
     private FragmentCouponBinding binding;
+    private int points_int = 0, redeem_int = 0;
+    private String[] getRedeem;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
@@ -37,11 +39,11 @@ public class CouponFragment extends Fragment {
             }
         });
 
+        points_int = Integer.parseInt(binding.points.getText().toString());
+
         binding.redeem.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
-//                   DialogCouponFragment dialogCouponFragment = new DialogCouponFragment();
-//                   dialogCouponFragment.show(getContext());
                    AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
                    alert.setTitle("Please show this redemption code to the merchant staff.");
                    alert.setMessage("\n Lkjdef \n");
@@ -50,6 +52,12 @@ public class CouponFragment extends Fragment {
                    TextView messageView = (TextView)dialog.findViewById(android.R.id.message);
                    messageView.setGravity(Gravity.CENTER);
                    messageView.setTextSize(40);
+
+                   getRedeem = binding.usePoint.getText().toString().split(" ");
+                   redeem_int = Integer.parseInt(getRedeem[0]);
+                   points_int = points_int - redeem_int;
+                   binding.points.setText(points_int+"");
+
                }
            });
 
@@ -64,6 +72,11 @@ public class CouponFragment extends Fragment {
                 TextView messageView = (TextView)dialog.findViewById(android.R.id.message);
                 messageView.setGravity(Gravity.CENTER);
                 messageView.setTextSize(40);
+
+                getRedeem = binding.usePoint1.getText().toString().split(" ");
+                redeem_int = Integer.parseInt(getRedeem[0]);
+                points_int = points_int - redeem_int;
+                binding.points.setText(points_int+"");
             }
         });
 
@@ -78,6 +91,11 @@ public class CouponFragment extends Fragment {
                 TextView messageView = (TextView)dialog.findViewById(android.R.id.message);
                 messageView.setGravity(Gravity.CENTER);
                 messageView.setTextSize(40);
+
+                getRedeem = binding.usePoint2.getText().toString().split(" ");
+                redeem_int = Integer.parseInt(getRedeem[0]);
+                points_int = points_int - redeem_int;
+                binding.points.setText(points_int+"");
             }
         });
 
@@ -92,6 +110,11 @@ public class CouponFragment extends Fragment {
                 TextView messageView = (TextView)dialog.findViewById(android.R.id.message);
                 messageView.setGravity(Gravity.CENTER);
                 messageView.setTextSize(40);
+
+                getRedeem = binding.usePoint3.getText().toString().split(" ");
+                redeem_int = Integer.parseInt(getRedeem[0]);
+                points_int = points_int - redeem_int;
+                binding.points.setText(points_int+"");
             }
         });
     }

@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/jost"
@@ -118,7 +118,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/textView7"
+                        android:id="@+id/usePoint"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -190,7 +190,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/usePoint1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -262,7 +262,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/usePoint2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -334,7 +334,7 @@
                     >
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/usePoint3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
