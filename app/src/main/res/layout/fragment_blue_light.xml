@@ -8,16 +8,16 @@
     tools:context=".BlueLightFragment">
 
 
-    <Button
-        android:id="@+id/blueLight_toggle_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="300dp"
-        android:text="@string/toggle_blue_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+<!--    <Button-->
+<!--        android:id="@+id/blueLight_toggle_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="125dp"-->
+<!--        android:layout_marginTop="300dp"-->
+<!--        android:text="@string/toggle_blue_light"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        />-->
 
     <Button
         android:id="@+id/btn_menu"
@@ -28,6 +28,23 @@
         android:background="@drawable/menu_icon2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="150dp"
+        android:id="@+id/toggle_button"
+        android:textOn="off"
+        android:textOff="on"
+        />
+
+    <SeekBar
+        android:id="@+id/filter_bar"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="250dp"
+        android:max="255" />
 
 
 </FrameLayout>
