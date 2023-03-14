@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -15,17 +16,12 @@ import android.view.WindowManager;
 public class BlueLightService extends Service implements View.OnTouchListener{
     private WindowManager mWindowManager;
     private View mOverlayView;
-    //int alpha;
+    int alpha, red, green, blue;
+
 
     public BlueLightService() {
     }
     // TODO: 3/14/2023 get temp value from seekbar in fragment and assign to alpha value
-//    @Override
-//    public int onStartCommand(Intent intent, int flags, int startId){
-//        alpha = intent.getIntExtra("alpha", -1);
-//        Log.d("alpha", "onStartCommand: " + alpha);
-//        return super.onStartCommand(intent, flags, startId);
-//    }
 
     @Override
     public void onCreate(){
@@ -53,11 +49,22 @@ public class BlueLightService extends Service implements View.OnTouchListener{
             );
 
             mOverlayView = new View(this);
-            mOverlayView.setBackgroundColor(Color.argb(100,255,60,0));
+            //mOverlayView.setBackgroundColor(Color.argb(50,100,60,0));
             mWindowManager.addView(mOverlayView, params);
         }
 
 
+    }
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId){
+        //retrieve the color value from the intent
+        alpha = intent.getIntExtra("alpha", 50);
+        red = intent.getIntExtra("red", 50);
+        green = intent.getIntExtra("green", 100);
+        blue = intent.getIntExtra("blue", 0);
+        mOverlayView.setBackgroundColor(Color.argb(alpha, red, green, blue));
+        Log.d("argb", "onStartCommand: alpha:"+ alpha + " red:" + red + " green:" + green + " blue:" + blue);
+        return START_STICKY;
     }
     @Override
     public IBinder onBind(Intent intent) {
@@ -76,5 +83,9 @@ public class BlueLightService extends Service implements View.OnTouchListener{
     public void onDestroy(){
         super.onDestroy();
         mWindowManager.removeView(mOverlayView);
+    }
+    public boolean isFilterOn(){
+        if(mOverlayView != null) return true;
+        else return false;
     }
 }
