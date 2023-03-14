@@ -5,6 +5,8 @@
     <uses-feature android:name="android.hardware.screen.portrait" />
     <uses-feature android:name="android.hardware.sensor.proximity" />
     <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
 
     <application
         android:allowBackup="true"

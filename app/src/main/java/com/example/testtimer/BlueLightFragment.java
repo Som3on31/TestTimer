@@ -52,17 +52,17 @@ public class BlueLightFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view,savedInstanceState);
-        binding.getRoot();
-        //old back button
-//        binding.btnMenu.setOnClickListener(View -> NavHostFragment.findNavController(BlueLightFragment.this)
-//                .navigate(R.id.action_blueLightFragment_to_homeFragment));
-
-
+        //binding.getRoot();
         binding = FragmentBlueLightBinding.bind(rootView);
         binding.btnMenu.setOnClickListener(View -> {
             NavHostFragment.findNavController(BlueLightFragment.this)
                     .navigate(R.id.action_blueLightFragment_to_homeFragment);
         });
+        Intent blueLightIntent = new Intent(getActivity(), BlueLightService.class);
+        //blueLightIntent.putExtra("alpha", alpha);
+        ToggleButton toggleButton = rootView.findViewById(R.id.toggle_button);
+
+
         //todo : send seekbar value to bluelight service
 //        seekBar = rootView.findViewById(R.id.filter_bar);
 //        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -83,9 +83,7 @@ public class BlueLightFragment extends Fragment {
 //            }
 //        });
 
-        Intent blueLightIntent = new Intent(getActivity(), BlueLightService.class);
-        //blueLightIntent.putExtra("alpha", alpha);
-        ToggleButton toggleButton = rootView.findViewById(R.id.toggle_button);
+
         toggleButton.setOnClickListener(v -> {
             if(toggleButton.isChecked()){
                 //showOverlay();
@@ -102,12 +100,6 @@ public class BlueLightFragment extends Fragment {
 
     private void showOverlay() {
         // Ask for permission to draw the overlay
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(getContext())) {
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getActivity().getPackageName()));
-//            startActivityForResult(intent, 0);
-            startActivity(intent);
-            return;
-        }
 
         // Create a new View to show the overlay
         overlayView = new View(deviceContext);

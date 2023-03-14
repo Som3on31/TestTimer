@@ -4,7 +4,10 @@ import android.app.Service;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.net.Uri;
+import android.os.Build;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -27,11 +30,17 @@ public class BlueLightService extends Service implements View.OnTouchListener{
     @Override
     public void onCreate(){
         super.onCreate();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
+            // Request overlay permission
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + getPackageName()));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            stopSelf();
+        } else {
+            mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+            WindowManager.LayoutParams params;
 
-
-        mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-        WindowManager.LayoutParams params = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             params = new WindowManager.LayoutParams(
                     WindowManager.LayoutParams.MATCH_PARENT,
                     WindowManager.LayoutParams.MATCH_PARENT,
@@ -42,11 +51,12 @@ public class BlueLightService extends Service implements View.OnTouchListener{
                             | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,//allow user to click through filter
                     PixelFormat.TRANSLUCENT
             );
-        }
-        mOverlayView = new View(this);
-        mOverlayView.setBackgroundColor(Color.argb(100,255,60,0));
 
-        mWindowManager.addView(mOverlayView, params);
+            mOverlayView = new View(this);
+            mOverlayView.setBackgroundColor(Color.argb(100,255,60,0));
+            mWindowManager.addView(mOverlayView, params);
+        }
+
 
     }
     @Override
