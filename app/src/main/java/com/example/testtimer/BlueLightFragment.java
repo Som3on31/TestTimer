@@ -141,7 +141,7 @@ public class BlueLightFragment extends Fragment {
         if (overlayView != null) {
             windowManager.removeView(overlayView);
         }
-//        binding = null;
+        binding = null;
     }
 
 }
