@@ -4,6 +4,7 @@ package com.example.testtimer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.net.Uri;
@@ -35,6 +36,7 @@ public class BlueLightFragment extends Fragment {
     SeekBar alphaBar, redBar, greenBar, blueBar;
     TextView alphaText, redText, greenText, blueText;
     int alpha, red, green, blue;
+    private SharedPreferences mSharedPreferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,8 @@ public class BlueLightFragment extends Fragment {
 
         binding =  FragmentBlueLightBinding.inflate(inflater, container, false);
         rootView = inflater.inflate(R.layout.fragment_blue_light, container, false);
+        mSharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         return rootView;
-
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
@@ -62,17 +64,23 @@ public class BlueLightFragment extends Fragment {
         });
         Intent blueLightIntent = new Intent(getActivity(), BlueLightService.class);
 
+        //find all component in fragment
         ToggleButton toggleButton = rootView.findViewById(R.id.toggle_button);
-
-
-        //todo : send seekbar value to bluelight service
         alphaBar = rootView.findViewById(R.id.alpha_bar);
+        int alphaProgress = mSharedPreferences.getInt("alphaValue", 0);
+        alphaBar.setProgress(alphaProgress);
         alphaText = rootView.findViewById(R.id.alpha_text);
         redBar = rootView.findViewById(R.id.red_bar);
+        int redProgress = mSharedPreferences.getInt("redValue", 0);
+        redBar.setProgress(redProgress);
         redText = rootView.findViewById(R.id.red_text);
         greenBar = rootView.findViewById(R.id.green_bar);
+        int greenProgress = mSharedPreferences.getInt("greenValue", 0);
+        greenBar.setProgress(greenProgress);
         greenText = rootView.findViewById(R.id.green_text);
         blueBar = rootView.findViewById(R.id.blue_bar);
+        int blueProgress = mSharedPreferences.getInt("blueValue", 0);
+        blueBar.setProgress(blueProgress);
         blueText = rootView.findViewById(R.id.blue_text);
         alphaBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -90,7 +98,10 @@ public class BlueLightFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                //save the progress value to sharedpreference
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putInt("alphaValue", seekBar.getProgress());
+                editor.apply();
             }
         });
         redBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -109,7 +120,10 @@ public class BlueLightFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                //save the progress value to sharedpreference
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putInt("redValue", seekBar.getProgress());
+                editor.apply();
             }
         });
         greenBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -128,7 +142,10 @@ public class BlueLightFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                //save the progress value to sharedpreference
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putInt("greenValue", seekBar.getProgress());
+                editor.apply();
             }
         });
         blueBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -147,7 +164,10 @@ public class BlueLightFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                //save the progress value to sharedpreference
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putInt("blueValue", seekBar.getProgress());
+                editor.apply();
             }
         });
 
