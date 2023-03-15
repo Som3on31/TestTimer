@@ -90,6 +90,11 @@ public class RestFragment extends Fragment {
 //                tw.setText(TEST_WORD);
                 isRunning = false;
                 if (binding!=null) binding.startButton.setVisibility(View.VISIBLE);
+
+// onFinish() restFragment back to TimerFragment
+//                if (binding != null) NavHostFragment.findNavController(RestFragment.this)
+//                        .navigate(R.id.action_restFragment_to_timerFragment);
+
             }
 
         };
