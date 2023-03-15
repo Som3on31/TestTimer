@@ -56,6 +56,10 @@
     <string name="reg_email">Email : </string>
     <string name="reg_bd">Birthday : </string>
     <string name="blueLightFilter">Blue Light Filter</string>
+    <string name="transparent">Transparent</string>
+    <string name="red_value">Red</string>
+    <string name="green_value">Green</string>
+    <string name="blue_value">Blue</string>
     <string name="R">R</string>
     <string name="G">G</string>
     <string name="Y">Y</string>

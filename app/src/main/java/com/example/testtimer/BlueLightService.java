@@ -13,12 +13,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 
-import androidx.core.graphics.ColorUtils;
 
 public class BlueLightService extends Service implements View.OnTouchListener{
     private WindowManager mWindowManager;
     private View mOverlayView;
-    int alpha, red, green, blue, intense;
+    int alpha, red, green, blue;
 
 
     public BlueLightService() {
@@ -89,14 +88,8 @@ public class BlueLightService extends Service implements View.OnTouchListener{
         mWindowManager.removeView(mOverlayView);
     }
     public boolean isFilterOn(){
-        if(mOverlayView != null) return true;
-        else return false;
+        return mOverlayView != null;
     }
-//    private int calculateColor(int intensity, int color) {
-//        float[] hsl = new float[3];
-//        ColorUtils.colorToHSL(color, hsl); // Get the HSL values for the base color
-//        hsl[2] = Math.max(0, hsl[2] - (intensity / 100f)); // Adjust the luminance value based on the intensity
-//        return ColorUtils.HSLToColor(hsl); // Convert the HSL values back to a color value
-//    }
+
 
 }
