@@ -20,6 +20,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.testtimer.databinding.FragmentBlueLightBinding;
 
+
 public class BlueLightFragment extends Fragment {
     FragmentBlueLightBinding binding;
 
@@ -90,7 +91,8 @@ public class BlueLightFragment extends Fragment {
                 alpha = progress;
                 blueLightIntent.putExtra("alpha", alpha);
                 alphaText.setText(R.string.transparent + alpha);
-                if(toggleButton.isChecked()) getActivity().startService(blueLightIntent);
+                if(toggleButton.isChecked()) startBlueLightService(blueLightIntent);
+                    //getActivity().startService(blueLightIntent);
                 Log.d("alpha", "onProgressChanged: " + alpha);
             }
 
@@ -113,7 +115,8 @@ public class BlueLightFragment extends Fragment {
                 red = progress;
                 blueLightIntent.putExtra("red", red);
                 redText.setText(R.string.red_value + red);
-                if(toggleButton.isChecked()) getActivity().startService(blueLightIntent);
+                if(toggleButton.isChecked()) startBlueLightService(blueLightIntent);
+                    //getActivity().startService(blueLightIntent);
                 Log.d("red", "onProgressChanged: " + red);
             }
 
@@ -136,7 +139,8 @@ public class BlueLightFragment extends Fragment {
                 green = progress;
                 blueLightIntent.putExtra("green", green);
                 greenText.setText(R.string.green_value + green);
-                if(toggleButton.isChecked()) getActivity().startService(blueLightIntent);
+                if(toggleButton.isChecked()) startBlueLightService(blueLightIntent);
+                    //getActivity().startService(blueLightIntent);
                 Log.d("green", "onProgressChanged: " + green);
             }
 
@@ -159,7 +163,8 @@ public class BlueLightFragment extends Fragment {
                 blue = progress;
                 blueLightIntent.putExtra("blue", blue);
                 blueText.setText(R.string.blue_value + blue);
-                if(toggleButton.isChecked()) getActivity().startService(blueLightIntent);
+                if(toggleButton.isChecked()) startBlueLightService(blueLightIntent);
+                    //getActivity().startService(blueLightIntent);
                 Log.d("blue", "onProgressChanged: " + blue);
             }
 
@@ -184,10 +189,12 @@ public class BlueLightFragment extends Fragment {
         //when button clicked, send intent to blueLight service
         toggleButton.setOnClickListener(v -> {
             if(toggleButton.isChecked()){
-                getActivity().startService(blueLightIntent);
+                //getActivity().startService(blueLightIntent);
+                startBlueLightService(blueLightIntent);
             }
             else{
-                getActivity().stopService(blueLightIntent);
+                //getActivity().stopService(blueLightIntent);
+                requireActivity().stopService(blueLightIntent);
             }
         });
 
@@ -205,7 +212,8 @@ public class BlueLightFragment extends Fragment {
         redText.setText(R.string.red_value + red);
         greenText.setText(R.string.green_value + green);
         blueText.setText(R.string.blue_value + blue);
-        if(toggle.isChecked()) getActivity().startService(intent);
+        if(toggle.isChecked()) startBlueLightService(intent);
+            //getActivity().startService(intent);
         alphaBar.setProgress(alpha);
         redBar.setProgress(red);
         greenBar.setProgress(green);
@@ -219,6 +227,10 @@ public class BlueLightFragment extends Fragment {
 
     }
 
+    public void startBlueLightService(Intent intent){
+        //if(toggleButton.isChecked()) getActivity().startService(intent);
+        requireActivity().startService(intent);
+    }
 //    private void showOverlay() {
 //        // Ask for permission to draw the overlay
 //
