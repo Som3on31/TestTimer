@@ -208,10 +208,10 @@ public class BlueLightFragment extends Fragment {
         intent.putExtra("red", red);
         intent.putExtra("green", green);
         intent.putExtra("blue", blue);
-        alphaText.setText(R.string.transparent + alpha);
-        redText.setText(R.string.red_value + red);
-        greenText.setText(R.string.green_value + green);
-        blueText.setText(R.string.blue_value + blue);
+        alphaText.setText("Transparent = " + alpha);
+        redText.setText("Red = " + red);
+        greenText.setText("Green = " + green);
+        blueText.setText("Blue = " + blue);
         if(toggle.isChecked()) startBlueLightService(intent);
             //getActivity().startService(intent);
         alphaBar.setProgress(alpha);
