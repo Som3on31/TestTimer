@@ -13,10 +13,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.core.graphics.ColorUtils;
+
 public class BlueLightService extends Service implements View.OnTouchListener{
     private WindowManager mWindowManager;
     private View mOverlayView;
-    int alpha, red, green, blue;
+    int alpha, red, green, blue, intense;
 
 
     public BlueLightService() {
@@ -62,7 +64,9 @@ public class BlueLightService extends Service implements View.OnTouchListener{
         red = intent.getIntExtra("red", 50);
         green = intent.getIntExtra("green", 100);
         blue = intent.getIntExtra("blue", 0);
+        //intense = intent.getIntExtra("intense", 50);
         mOverlayView.setBackgroundColor(Color.argb(alpha, red, green, blue));
+        //mOverlayView.setBackgroundColor(calculateColor(intense, Color.argb(alpha, red, green, blue)));
         Log.d("argb", "onStartCommand: alpha:"+ alpha + " red:" + red + " green:" + green + " blue:" + blue);
         return START_STICKY;
     }
@@ -88,4 +92,11 @@ public class BlueLightService extends Service implements View.OnTouchListener{
         if(mOverlayView != null) return true;
         else return false;
     }
+//    private int calculateColor(int intensity, int color) {
+//        float[] hsl = new float[3];
+//        ColorUtils.colorToHSL(color, hsl); // Get the HSL values for the base color
+//        hsl[2] = Math.max(0, hsl[2] - (intensity / 100f)); // Adjust the luminance value based on the intensity
+//        return ColorUtils.HSLToColor(hsl); // Convert the HSL values back to a color value
+//    }
+
 }

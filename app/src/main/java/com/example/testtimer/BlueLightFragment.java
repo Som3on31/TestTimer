@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -26,10 +27,11 @@ public class BlueLightFragment extends Fragment {
     private WindowManager windowManager;
     private View overlayView;
     private View rootView;
-    SeekBar alphaBar, redBar, greenBar, blueBar;
-    TextView alphaText, redText, greenText, blueText;
+    SeekBar alphaBar, redBar, greenBar, blueBar, intenseBar;
+    TextView alphaText, redText, greenText, blueText, intenseText;
     int alpha, red, green, blue;
     private SharedPreferences mSharedPreferences;
+    private int intenseProgress = 50;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,22 +61,34 @@ public class BlueLightFragment extends Fragment {
 
         //find all component in fragment
         ToggleButton toggleButton = rootView.findViewById(R.id.toggle_button);
+        Button redPreset = rootView.findViewById(R.id.btn_red_preset);
+        Button greenPreset = rootView.findViewById(R.id.btn_green_preset);
+        Button yellowPreset = rootView.findViewById(R.id.btn_yellow_preset);
+        //alpha
         alphaBar = rootView.findViewById(R.id.alpha_bar);
         int alphaProgress = mSharedPreferences.getInt("alphaValue", 0);
         alphaBar.setProgress(alphaProgress);
         alphaText = rootView.findViewById(R.id.alpha_text);
+        //red
         redBar = rootView.findViewById(R.id.red_bar);
         int redProgress = mSharedPreferences.getInt("redValue", 0);
         redBar.setProgress(redProgress);
         redText = rootView.findViewById(R.id.red_text);
+        //green
         greenBar = rootView.findViewById(R.id.green_bar);
         int greenProgress = mSharedPreferences.getInt("greenValue", 0);
         greenBar.setProgress(greenProgress);
         greenText = rootView.findViewById(R.id.green_text);
+        //blue
         blueBar = rootView.findViewById(R.id.blue_bar);
         int blueProgress = mSharedPreferences.getInt("blueValue", 0);
         blueBar.setProgress(blueProgress);
         blueText = rootView.findViewById(R.id.blue_text);
+        //intense
+        //intenseBar = rootView.findViewById(R.id.intensity_bar);
+        //intenseProgress = mSharedPreferences.getInt("intenseValue", 50);
+        //intenseBar.setProgress(intenseProgress);
+        //intenseText = rootView.findViewById(R.id.intensity_text);
         alphaBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -167,6 +181,25 @@ public class BlueLightFragment extends Fragment {
                 editor.apply();
             }
         });
+        redPreset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setARGB(255, 124, 0, blueLightIntent, toggleButton);
+            }
+        });
+        greenPreset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setARGB(134, 255, 0, blueLightIntent, toggleButton);
+            }
+        });
+        yellowPreset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setARGB(230, 205, 0, blueLightIntent, toggleButton);
+            }
+        });
+
 
         //when button clicked, send intent to blueLight service
         toggleButton.setOnClickListener(v -> {
@@ -177,6 +210,32 @@ public class BlueLightFragment extends Fragment {
                 getActivity().stopService(blueLightIntent);
             }
         });
+
+    }
+    public void setARGB(int nRed, int nGreen, int nBlue, Intent intent, ToggleButton toggle){
+        red = nRed;
+        green=  nGreen;
+        blue = nBlue;
+        alpha = 100;
+        intent.putExtra("alpha", alpha);
+        intent.putExtra("red", red);
+        intent.putExtra("green", green);
+        intent.putExtra("blue", blue);
+        alphaText.setText("Transparent = " + alpha);
+        redText.setText("Red = " + red);
+        greenText.setText("Green = " + green);
+        blueText.setText("Blue = " + blue);
+        if(toggle.isChecked()) getActivity().startService(intent);
+        alphaBar.setProgress(alpha);
+        redBar.setProgress(red);
+        greenBar.setProgress(green);
+        blueBar.setProgress(blue);
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        editor.putInt("alphaValue", alphaBar.getProgress());
+        editor.putInt("redValue", redBar.getProgress());
+        editor.putInt("greenValue", greenBar.getProgress());
+        editor.putInt("blueValue", blueBar.getProgress());
+        editor.apply();
 
     }
 
