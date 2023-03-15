@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.testtimer.databinding.FragmentHomeBinding;
@@ -50,6 +51,19 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+//        Bundle bundle = this.getArguments();
+//        String data = bundle.getString("pfc");
+//        binding.points.setText(data);
+//        bundle.putString("pfc", binding.points.getText().toString());
+//        getParentFragmentManager().setFragmentResult("pointsFromHome", result);
+
+//        getParentFragmentManager().setFragmentResultListener("pointsFromCoupon", this, new FragmentResultListener() {
+//            @Override
+//            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+//                String data = result.getString("pfc");
+//                binding.points.setText(data);
+//            }
+//        });
 
         //buttons on home screen
         binding.imgTimer.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +136,14 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 DialogBerryFragment dialogBerryFragment = new DialogBerryFragment();
                 dialogBerryFragment.show(getActivity().getSupportFragmentManager(), "description");
+            }
+        });
+
+        binding.btnInfo.setOnClickListener(new View.OnClickListener()  {
+            @Override
+            public void onClick(View view) {
+                DialogInfoFragment dialogInfoFragment = new DialogInfoFragment();
+                dialogInfoFragment.show(getActivity().getSupportFragmentManager(), "information");
             }
         });
 

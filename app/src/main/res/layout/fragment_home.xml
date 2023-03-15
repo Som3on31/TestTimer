@@ -7,6 +7,16 @@
     android:background="@drawable/home_bg"
     tools:context=".HomeFragment">
 
+    <Button
+        android:id="@+id/btn_info"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="37dp"
+        android:background="@drawable/info_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/username"
         android:layout_width="wrap_content"
@@ -32,7 +42,7 @@
         android:layout_marginEnd="10dp"
         android:fontFamily="@font/jost"
         android:text="@string/logout"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
