@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 
+
 public class BlueLightService extends Service implements View.OnTouchListener{
     private WindowManager mWindowManager;
     private View mOverlayView;
@@ -62,7 +63,9 @@ public class BlueLightService extends Service implements View.OnTouchListener{
         red = intent.getIntExtra("red", 50);
         green = intent.getIntExtra("green", 100);
         blue = intent.getIntExtra("blue", 0);
+        //intense = intent.getIntExtra("intense", 50);
         mOverlayView.setBackgroundColor(Color.argb(alpha, red, green, blue));
+        //mOverlayView.setBackgroundColor(calculateColor(intense, Color.argb(alpha, red, green, blue)));
         Log.d("argb", "onStartCommand: alpha:"+ alpha + " red:" + red + " green:" + green + " blue:" + blue);
         return START_STICKY;
     }
@@ -85,7 +88,8 @@ public class BlueLightService extends Service implements View.OnTouchListener{
         mWindowManager.removeView(mOverlayView);
     }
     public boolean isFilterOn(){
-        if(mOverlayView != null) return true;
-        else return false;
+        return mOverlayView != null;
     }
+
+
 }

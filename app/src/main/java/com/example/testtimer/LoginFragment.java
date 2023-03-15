@@ -22,7 +22,6 @@ public class LoginFragment extends Fragment {
 
     FragmentLoginBinding binding;
 
-
     private DatabaseHelper mDatabaseHelper;
 
     private FirebaseAuth auth;
@@ -162,8 +161,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void login(){
-        String email = binding.loginUsername.toString().trim();
-        String password = binding.loginPassword.toString();
+        String email = binding.loginUsername.getText().toString().trim();
+        String password = binding.loginPassword.getText().toString();
 
         if (!checkEmail(email)) return;
         if (!checkPassword(password)) return;

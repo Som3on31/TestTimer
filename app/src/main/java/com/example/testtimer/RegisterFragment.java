@@ -92,6 +92,7 @@ public class RegisterFragment extends Fragment {
 
                     myRef.setValue("Hello, World!");
 
+
                     // Send data to the database
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -100,6 +101,8 @@ public class RegisterFragment extends Fragment {
                                     // Show toast message
                                     String successMsg = "Registration successful. Check your email.";
                                     Toast.makeText(getActivity(), successMsg, Toast.LENGTH_SHORT).show();
+                                    FirebaseAuth.getInstance().getCurrentUser().sendEmailVerification();
+
 
                                     //go to loginFragment
                                     NavHostFragment.findNavController(RegisterFragment.this)

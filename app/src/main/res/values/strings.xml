@@ -55,6 +55,17 @@
     <string name="reg_lname">Last name : </string>
     <string name="reg_email">Email : </string>
     <string name="reg_bd">Birthday : </string>
+    <string name="blueLightFilter">Blue Light Filter</string>
+    <string name="transparent">Transparent</string>
+    <string name="red_value">Red</string>
+    <string name="green_value">Green</string>
+    <string name="blue_value">Blue</string>
+    <string name="R">R</string>
+    <string name="G">G</string>
+    <string name="Y">Y</string>
+    <string name="OFF">OFF</string>
+    <string name="ON">ON</string>
+    <string name="menu_btn"></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
