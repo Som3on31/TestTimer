@@ -90,7 +90,7 @@ public class BlueLightFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 alpha = progress;
                 blueLightIntent.putExtra("alpha", alpha);
-                alphaText.setText(R.string.transparent + alpha);
+                alphaText.setText("Transparent = " + alpha);
                 if(toggleButton.isChecked()) startBlueLightService(blueLightIntent);
                     //getActivity().startService(blueLightIntent);
                 Log.d("alpha", "onProgressChanged: " + alpha);
@@ -114,8 +114,8 @@ public class BlueLightFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 red = progress;
                 blueLightIntent.putExtra("red", red);
-                redText.setText(R.string.red_value + red);
-                if(toggleButton.isChecked()) startBlueLightService(blueLightIntent);
+                redText.setText("Red = " + red);
+                if(toggleButton.isChecked()) getActivity().startService(blueLightIntent);;
                     //getActivity().startService(blueLightIntent);
                 Log.d("red", "onProgressChanged: " + red);
             }
@@ -138,8 +138,8 @@ public class BlueLightFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 green = progress;
                 blueLightIntent.putExtra("green", green);
-                greenText.setText(R.string.green_value + green);
-                if(toggleButton.isChecked()) startBlueLightService(blueLightIntent);
+                greenText.setText("Green = " + green);
+                if(toggleButton.isChecked()) getActivity().startService(blueLightIntent);;
                     //getActivity().startService(blueLightIntent);
                 Log.d("green", "onProgressChanged: " + green);
             }
@@ -162,7 +162,7 @@ public class BlueLightFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 blue = progress;
                 blueLightIntent.putExtra("blue", blue);
-                blueText.setText(R.string.blue_value + blue);
+                blueText.setText("Blue = " + blue);
                 if(toggleButton.isChecked()) startBlueLightService(blueLightIntent);
                     //getActivity().startService(blueLightIntent);
                 Log.d("blue", "onProgressChanged: " + blue);
