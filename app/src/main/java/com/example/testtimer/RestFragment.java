@@ -57,6 +57,11 @@ public class RestFragment extends Fragment {
                     .navigate(R.id.action_restFragment_to_timerFragment);
         });
 
+        binding.btnReward.setOnClickListener(View -> {
+            NavHostFragment.findNavController(RestFragment.this)
+                    .navigate(R.id.action_restFragment_to_rewardFragment);
+        });
+
         binding.button.setVisibility(View.VISIBLE);
         binding.button.setOnClickListener(View -> {
             NavHostFragment.findNavController(RestFragment.this)
@@ -90,6 +95,11 @@ public class RestFragment extends Fragment {
 //                tw.setText(TEST_WORD);
                 isRunning = false;
                 if (binding!=null) binding.startButton.setVisibility(View.VISIBLE);
+
+// onFinish() restFragment back to TimerFragment
+//                if (binding != null) NavHostFragment.findNavController(RestFragment.this)
+//                        .navigate(R.id.action_restFragment_to_timerFragment);
+
             }
 
         };
