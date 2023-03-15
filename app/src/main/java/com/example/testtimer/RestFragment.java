@@ -28,6 +28,7 @@ public class RestFragment extends Fragment {
 
     private CountDownTimer timer;
     private TextView tw;
+    private int point = 0;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
@@ -93,12 +94,12 @@ public class RestFragment extends Fragment {
 
             public void onFinish() {
 //                tw.setText(TEST_WORD);
+
                 isRunning = false;
+                point += 15;
                 if (binding!=null) binding.startButton.setVisibility(View.VISIBLE);
 
-// onFinish() restFragment back to TimerFragment
-//                if (binding != null) NavHostFragment.findNavController(RestFragment.this)
-//                        .navigate(R.id.action_restFragment_to_timerFragment);
+
 
             }
 
