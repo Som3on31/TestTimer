@@ -19,55 +19,120 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/graph"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-29dp" />
+
+    <LinearLayout
+        android:id="@+id/layout_screen_inside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/screentime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="30:00"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/hr"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_rest_inside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/resttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="0:47"
+            android:textColor="#EA291B"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/hr2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:text="@string/hr"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
     <LinearLayout
         android:id="@+id/layout_screen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="190dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.237"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
+
         <LinearLayout
-            android:id="@+id/layout_screen_inside"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:background="@drawable/screencircle"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/screentime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/ttScreenTime"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/hr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                android:text="@string/hr"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/txt_screen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/jost"
-            android:text="@string/totalScreenTime"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.171"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_screen" />
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/screencircle"/>
+
+            <TextView
+                android:id="@+id/txt_screen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/jost"
+                android:text="@string/totalScreenTime"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.171"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_screen" />
+        </LinearLayout>
+
 
 
     </LinearLayout>
@@ -76,7 +141,7 @@
         android:id="@+id/layout_rest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="190dp"
         android:layout_marginStart="20dp"
         android:gravity="center"
         android:orientation="vertical"
@@ -86,42 +151,30 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/layout_rest_inside"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:background="@drawable/restcircle"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/resttime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/ttRestTime"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/hr2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                android:text="@string/hr"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/txt_rest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/jost"
-            android:text="@string/totalRestTime"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.171"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_screen" />
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/restcircle"/>
+            <TextView
+                android:id="@+id/txt_rest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/jost"
+                android:text="@string/totalRestTime"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.171"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_screen" />
+        </LinearLayout>
+
 
 
     </LinearLayout>
@@ -203,7 +256,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/ttScreenTime"
+                            android:text="7:00"
+                            android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold"/>
 
@@ -231,7 +285,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/ttRestTime"
+                            android:text="13:50"
+                            android:textColor="#16C51D"
                             android:textSize="20sp"
                             android:textStyle="bold"/>
 
@@ -240,13 +295,17 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginStart="10dp"
-                            android:text="@string/hr"
+                            android:text="min"
                             android:textSize="20sp" />
                     </LinearLayout>
 
-
-
                 </LinearLayout>
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/berry_good"/>
 
             </LinearLayout>
 
@@ -297,7 +356,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/ttScreenTime"
+                            android:text="3:40"
+                            android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold"/>
 
@@ -325,7 +385,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/ttRestTime"
+                            android:text="8:40"
+                            android:textColor="#16C51D"
                             android:textSize="20sp"
                             android:textStyle="bold"/>
 
@@ -334,13 +395,16 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginStart="10dp"
-                            android:text="@string/hr"
+                            android:text="min"
                             android:textSize="20sp" />
                     </LinearLayout>
-
-
-
                 </LinearLayout>
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/berry_good"/>
 
             </LinearLayout>
 
@@ -391,7 +455,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/ttScreenTime"
+                            android:text="8:20"
+                            android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold"/>
 
@@ -419,7 +484,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/ttRestTime"
+                            android:text="12:50"
+                            android:textColor="#EA291B"
                             android:textSize="20sp"
                             android:textStyle="bold"/>
 
@@ -428,13 +494,16 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginStart="10dp"
-                            android:text="@string/hr"
+                            android:text="min"
                             android:textSize="20sp" />
                     </LinearLayout>
-
-
-
                 </LinearLayout>
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/berry_poor"/>
 
             </LinearLayout>
 
@@ -485,7 +554,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/ttScreenTime"
+                            android:text="4:20"
+                            android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold"/>
 
@@ -513,7 +583,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/ttRestTime"
+                            android:text="10:00"
+                            android:textColor="#16C51D"
                             android:textSize="20sp"
                             android:textStyle="bold"/>
 
@@ -522,11 +593,16 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginStart="10dp"
-                            android:text="@string/hr"
+                            android:text="min"
                             android:textSize="20sp" />
                     </LinearLayout>
-
                 </LinearLayout>
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/berry_good"/>
 
             </LinearLayout>
 
@@ -577,7 +653,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/ttScreenTime"
+                            android:text="6:40"
+                            android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold"/>
 
@@ -605,7 +682,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="@string/ttRestTime"
+                            android:text="1:40"
+                            android:textColor="#EA291B"
                             android:textSize="20sp"
                             android:textStyle="bold"/>
 
@@ -614,11 +692,16 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginStart="10dp"
-                            android:text="@string/hr"
+                            android:text="min"
                             android:textSize="20sp" />
                     </LinearLayout>
-
                 </LinearLayout>
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/berry_poor"/>
 
             </LinearLayout>
 
