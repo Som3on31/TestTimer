@@ -1,16 +1,9 @@
 package com.example.testtimer;
 
-
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.PixelFormat;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -88,6 +81,7 @@ public class BlueLightFragment extends Fragment {
                 alpha = progress;
                 blueLightIntent.putExtra("alpha", alpha);
                 alphaText.setText("Transparent = " + alpha);
+                if(toggleButton.isChecked()) getActivity().startService(blueLightIntent);
                 Log.d("alpha", "onProgressChanged: " + alpha);
             }
 
@@ -98,7 +92,7 @@ public class BlueLightFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                //save the progress value to sharedpreference
+                //save the progress value to sharedPreference
                 SharedPreferences.Editor editor = mSharedPreferences.edit();
                 editor.putInt("alphaValue", seekBar.getProgress());
                 editor.apply();
@@ -110,6 +104,7 @@ public class BlueLightFragment extends Fragment {
                 red = progress;
                 blueLightIntent.putExtra("red", red);
                 redText.setText("Red = " + red);
+                if(toggleButton.isChecked()) getActivity().startService(blueLightIntent);
                 Log.d("red", "onProgressChanged: " + red);
             }
 
@@ -120,7 +115,7 @@ public class BlueLightFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                //save the progress value to sharedpreference
+                //save the progress value to sharedPreference
                 SharedPreferences.Editor editor = mSharedPreferences.edit();
                 editor.putInt("redValue", seekBar.getProgress());
                 editor.apply();
@@ -132,6 +127,7 @@ public class BlueLightFragment extends Fragment {
                 green = progress;
                 blueLightIntent.putExtra("green", green);
                 greenText.setText("Green = " + green);
+                if(toggleButton.isChecked()) getActivity().startService(blueLightIntent);
                 Log.d("green", "onProgressChanged: " + green);
             }
 
@@ -142,7 +138,7 @@ public class BlueLightFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                //save the progress value to sharedpreference
+                //save the progress value to sharedPreference
                 SharedPreferences.Editor editor = mSharedPreferences.edit();
                 editor.putInt("greenValue", seekBar.getProgress());
                 editor.apply();
@@ -154,6 +150,7 @@ public class BlueLightFragment extends Fragment {
                 blue = progress;
                 blueLightIntent.putExtra("blue", blue);
                 blueText.setText("Blue = " + blue);
+                if(toggleButton.isChecked()) getActivity().startService(blueLightIntent);
                 Log.d("blue", "onProgressChanged: " + blue);
             }
 
@@ -164,14 +161,14 @@ public class BlueLightFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                //save the progress value to sharedpreference
+                //save the progress value to sharedPreference
                 SharedPreferences.Editor editor = mSharedPreferences.edit();
                 editor.putInt("blueValue", seekBar.getProgress());
                 editor.apply();
             }
         });
 
-        //when button clicked, send intent to bluelight service
+        //when button clicked, send intent to blueLight service
         toggleButton.setOnClickListener(v -> {
             if(toggleButton.isChecked()){
                 getActivity().startService(blueLightIntent);
