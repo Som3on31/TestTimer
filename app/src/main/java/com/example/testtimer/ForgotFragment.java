@@ -45,7 +45,7 @@ public class ForgotFragment extends Fragment {
 
         //TODO: make it send an email to the des
         binding.submit.setOnClickListener(View -> {
-            resetPassword(binding.editEmail.toString().trim());
+            resetPassword(binding.editEmail.getText().toString().trim());
 
 
             NavHostFragment.findNavController(ForgotFragment.this)
@@ -60,15 +60,7 @@ public class ForgotFragment extends Fragment {
     }
 
     public void resetPassword(String email){
-        if (email.length()==0) {
-            Toast.makeText(getContext(),"Email cannot be empty.",Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            Toast.makeText(getContext(),"Please enter a valid email.",Toast.LENGTH_SHORT).show();
-            return;
-        }
+        if(!isEmailVaild(email)) return;
 
         auth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
@@ -77,5 +69,17 @@ public class ForgotFragment extends Fragment {
                 Toast.makeText(getContext(),"Unexpected error. Please try again.",Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public boolean isEmailVaild(String email){
+        if (email.length()==0) {
+            Toast.makeText(getContext(),"Email cannot be empty.",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            Toast.makeText(getContext(),"Please enter a valid email.",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }

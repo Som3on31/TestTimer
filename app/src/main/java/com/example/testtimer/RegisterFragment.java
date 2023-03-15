@@ -92,6 +92,7 @@ public class RegisterFragment extends Fragment {
 
                     myRef.setValue("Hello, World!");
 
+
                     // Send data to the database
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
