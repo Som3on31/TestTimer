@@ -189,7 +189,7 @@
         android:text="G"
         android:background="@drawable/btn_green_preset"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/layout_blue"
         android:layout_marginTop="110dp"
