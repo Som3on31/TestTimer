@@ -57,6 +57,11 @@ public class RestFragment extends Fragment {
                     .navigate(R.id.action_restFragment_to_timerFragment);
         });
 
+        binding.btnReward.setOnClickListener(View -> {
+            NavHostFragment.findNavController(RestFragment.this)
+                    .navigate(R.id.action_restFragment_to_rewardFragment);
+        });
+
         binding.button.setVisibility(View.VISIBLE);
         binding.button.setOnClickListener(View -> {
             NavHostFragment.findNavController(RestFragment.this)

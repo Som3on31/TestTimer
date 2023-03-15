@@ -42,7 +42,7 @@
     <!--    menu button-->
 
     <Button
-        android:id="@+id/reward_button"
+        android:id="@+id/btn_reward"
         android:layout_width="200dp"
         android:layout_height="52dp"
         android:layout_marginTop="150dp"
