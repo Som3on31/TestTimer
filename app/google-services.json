@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "293122780074",
+    "firebase_url": "https://testtimer-a8d98-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "testtimer-a8d98",
+    "storage_bucket": "testtimer-a8d98.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293122780074:android:30c549b553a19584a759d3",
+        "android_client_info": {
+          "package_name": "com.example.testtimer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293122780074-sok6ela3haj28m7v6suvlr28n9oir16t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACTny9AouuqxkoWRXzBdBQPmeFIrCmmCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293122780074-sok6ela3haj28m7v6suvlr28n9oir16t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

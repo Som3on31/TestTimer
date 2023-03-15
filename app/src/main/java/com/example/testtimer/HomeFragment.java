@@ -13,10 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.testtimer.databinding.FragmentHomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeFragment extends Fragment {
 
@@ -28,7 +28,6 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         builder = new AlertDialog.Builder(getActivity());
-
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -161,10 +160,10 @@ public class HomeFragment extends Fragment {
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        FirebaseAuth.getInstance().signOut();
 
                         Toast.makeText(getContext(),"Successfully logged out",
                                 Toast.LENGTH_SHORT).show();
-
                         NavHostFragment.findNavController(HomeFragment.this)
                                 .navigate(R.id.action_homeFragment_to_loginFragment);
                     }

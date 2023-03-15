@@ -1,53 +1,39 @@
 package com.example.testtimer;
 
-import static com.example.testtimer.MainActivity.BLANK;
-import static com.example.testtimer.MainActivity.DEFAULT_REST_TIME_SECS;
-import static com.example.testtimer.MainActivity.REST_TIME_TEXT;
-import static com.example.testtimer.MainActivity.preference;
-
 import android.content.ContentValues;
-import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.fragment.NavHostFragment;
-
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.testtimer.databinding.FragmentLoginBinding;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.testtimer.databinding.FragmentRegisterBinding;
-import com.example.testtimer.databinding.FragmentSettingsBinding;
+import com.example.testtimer.objects.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterFragment extends Fragment {
 
     FragmentRegisterBinding binding;
 
-    private EditText firstNameEditText;
-    private EditText lastNameEditText;
-    private EditText usernameEditText;
-    private EditText passwordEditText;
-    private EditText emailEditText;
-    private EditText birthdayEditText;
-    private Button registerButton;
-    private TextView loginTextView;
-
     private SQLiteDatabase database;
+
+    private FirebaseAuth auth;
 
     public RegisterFragment() {
         // Required empty public constructor
+    }
+
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
+        auth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -55,6 +41,7 @@ public class RegisterFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding =  FragmentRegisterBinding.inflate(inflater, container, false);
+
         return binding.getRoot();
     }
 
@@ -62,145 +49,80 @@ public class RegisterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view,savedInstanceState);
 
-
-        // Get references to UI elements
-//        firstNameEditText = view.findViewById(R.id.reg_fname);
-//        lastNameEditText = view.findViewById(R.id.edit_lname);
-//        usernameEditText = view.findViewById(R.id.edit_user);
-//        passwordEditText = view.findViewById(R.id.edit_password);
-//        emailEditText = view.findViewById(R.id.edit_email);
-//        birthdayEditText = view.findViewById(R.id.edit_bd);
-//        registerButton = view.findViewById(R.id.register);
-//        loginTextView = view.findViewById(R.id.register);
-
         // Initialize database
         database = new DatabaseHelper(getActivity()).getWritableDatabase();
 
         // Set click listeners
-        binding.register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get user input
-                String firstName = binding.editFname.getText().toString();
-                String lastName = binding.editLname.getText().toString();
-                String username = binding.editUser.getText().toString();
-                String password = binding.editPassword.getText().toString();
-                String email = binding.editEmail.getText().toString();
-                String birthday = binding.editBd.getText().toString();
+        binding.register.setOnClickListener(v -> {
+            // Get user input
+            String firstName = binding.editFname.getText().toString().trim();
+            String lastName = binding.editLname.getText().toString().trim();
+            String username = binding.editUser.getText().toString().trim();
+            String password = binding.editPassword.getText().toString().trim();
+            String email = binding.editEmail.getText().toString().trim();
+            String birthday = binding.editBd.getText().toString().trim();
 
-                // Insert user input into database
-                ContentValues values = new ContentValues();
-                values.put(DatabaseHelper.COLUMN_FIRST_NAME, firstName);
-                values.put(DatabaseHelper.COLUMN_LAST_NAME, lastName);
-                values.put(DatabaseHelper.COLUMN_USERNAME, username);
-                values.put(DatabaseHelper.COLUMN_PASSWORD, password);
-                values.put(DatabaseHelper.COLUMN_EMAIL, email);
-                values.put(DatabaseHelper.COLUMN_BIRTHDAY, birthday);
-                database.insert(DatabaseHelper.TABLE_USERS, null, values);
+            // Insert user input into database
+            ContentValues values = new ContentValues();
+            values.put(DatabaseHelper.COLUMN_FIRST_NAME, firstName);
+            values.put(DatabaseHelper.COLUMN_LAST_NAME, lastName);
+            values.put(DatabaseHelper.COLUMN_USERNAME, username);
+            values.put(DatabaseHelper.COLUMN_PASSWORD, password);
+            values.put(DatabaseHelper.COLUMN_EMAIL, email);
+            values.put(DatabaseHelper.COLUMN_BIRTHDAY, birthday);
+            database.insert(DatabaseHelper.TABLE_USERS, null, values);
 
-                // Clear input fields
-                binding.editFname.setText("");
-                binding.editLname.setText("");
-                binding.editUser.setText("");
-                binding.editPassword.setText("");
-                binding.editEmail.setText("");
-                binding.editBd.setText("");
 
-                // Show toast message
-                Toast.makeText(getActivity(), "Registration successful", Toast.LENGTH_SHORT).show();
 
-                //go to loginFragment
-                NavHostFragment.findNavController(RegisterFragment.this)
-                        .navigate(R.id.action_registerFragment_to_loginFragment);
-            }
+            // Clear input fields
+            binding.editFname.setText("");
+            binding.editLname.setText("");
+            binding.editUser.setText("");
+            binding.editPassword.setText("");
+            binding.editEmail.setText("");
+            binding.editBd.setText("");
+
+            // Register via email and password
+            auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
+                if (task.isSuccessful()){
+                    User user = new User(firstName,lastName,birthday,email,username,password);
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("message");
+
+                    myRef.setValue("Hello, World!");
+
+                    // Send data to the database
+                    FirebaseDatabase.getInstance().getReference("Users")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .setValue(user).addOnCompleteListener(task1 -> {
+                                if (task1.isSuccessful()){
+                                    // Show toast message
+                                    String successMsg = "Registration successful. Check your email.";
+                                    Toast.makeText(getActivity(), successMsg, Toast.LENGTH_SHORT).show();
+
+                                    //go to loginFragment
+                                    NavHostFragment.findNavController(RegisterFragment.this)
+                                            .navigate(R.id.action_registerFragment_to_loginFragment);
+                                }else{
+                                    String failMsg = "Cannot register. Please try again.";
+                                    Toast.makeText(getActivity(), failMsg,Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }else{
+                    Toast.makeText(getActivity(),"Cannot register.",Toast.LENGTH_SHORT).show();
+                }
+            });
+
         });
-
-
-//        loginTextView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Switch to login fragment
-//                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                transaction.replace(R.id.fragment_container, new LoginFragment());
-//                transaction.addToBackStack(null);
-//                transaction.commit();
-//            }
-//        });
-
     }
-
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        View view = inflater.inflate(R.layout.fragment_register, container, false);
-//
-//
-//        // Get references to UI elements
-//        firstNameEditText = view.findViewById(R.id.reg_fname);
-//        lastNameEditText = view.findViewById(R.id.edit_lname);
-//        usernameEditText = view.findViewById(R.id.edit_user);
-//        passwordEditText = view.findViewById(R.id.edit_password);
-//        emailEditText = view.findViewById(R.id.edit_email);
-//        birthdayEditText = view.findViewById(R.id.edit_bd);
-//        registerButton = view.findViewById(R.id.register);
-//        loginTextView = view.findViewById(R.id.register);
-//
-//        // Initialize database
-//        database = new DatabaseHelper(getActivity()).getWritableDatabase();
-//
-//        // Set click listeners
-//        registerButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Get user input
-//                String firstName = firstNameEditText.getText().toString();
-//                String lastName = lastNameEditText.getText().toString();
-//                String username = usernameEditText.getText().toString();
-//                String password = passwordEditText.getText().toString();
-//                String email = emailEditText.getText().toString();
-//                String birthday = birthdayEditText.getText().toString();
-//
-//                // Insert user input into database
-//                ContentValues values = new ContentValues();
-//                values.put(DatabaseHelper.COLUMN_FIRST_NAME, firstName);
-//                values.put(DatabaseHelper.COLUMN_LAST_NAME, lastName);
-//                values.put(DatabaseHelper.COLUMN_USERNAME, username);
-//                values.put(DatabaseHelper.COLUMN_PASSWORD, password);
-//                values.put(DatabaseHelper.COLUMN_EMAIL, email);
-//                values.put(DatabaseHelper.COLUMN_BIRTHDAY, birthday);
-//                database.insert(DatabaseHelper.TABLE_USERS, null, values);
-//
-//                // Clear input fields
-//                firstNameEditText.setText("");
-//                lastNameEditText.setText("");
-//                usernameEditText.setText("");
-//                passwordEditText.setText("");
-//                emailEditText.setText("");
-//                birthdayEditText.setText("");
-//
-//                // Show toast message
-//                Toast.makeText(getActivity(), "Registration successful", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        loginTextView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Switch to login fragment
-//                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                transaction.replace(R.id.fragment_container, new LoginFragment());
-//                transaction.addToBackStack(null);
-//                transaction.commit();
-//            }
-//        });
-//
-//        return view;
-//    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         // Close database when fragment is destroyed
         database.close();
+
+        binding = null;
     }
 }
