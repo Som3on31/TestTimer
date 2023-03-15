@@ -25,6 +25,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
+        android:text="@string/menu_btn"
         android:background="@drawable/menu_icon2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +34,7 @@
         android:id="@+id/blf_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Blue Light Filter"
+        android:text="@string/blueLightFilter"
         android:fontFamily="@font/jost"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -175,27 +176,27 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/layout_blue"
         android:layout_marginTop="110dp"
-        android:layout_marginLeft="70dp"
+        android:layout_marginStart="70dp"
         android:id="@+id/btn_red_preset"
-        android:text="R"
+        android:text="@string/R"
         android:background="@drawable/btn_red_preset"/>
     <Button
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/layout_blue"
         android:layout_marginTop="110dp"
-        android:layout_marginLeft="170dp"
+        android:layout_marginStart="170dp"
         android:id="@+id/btn_green_preset"
-        android:text="G"
+        android:text="@string/G"
         android:background="@drawable/btn_green_preset"/>
     <Button
         android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/layout_blue"
         android:layout_marginTop="110dp"
-        android:layout_marginLeft="270dp"
+        android:layout_marginStart="270dp"
         android:id="@+id/btn_yellow_preset"
-        android:text="Y"
+        android:text="@string/Y"
         android:background="@drawable/btn_yellow_preset"/>
 
     <ToggleButton
@@ -204,10 +205,10 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/layout_blue"
         android:layout_marginTop="200dp"
-        android:layout_marginLeft="160dp"
+        android:layout_marginStart="160dp"
         android:background="@drawable/btn_round_rect"
-        android:textOn="off"
-        android:textOff="on"
+        android:textOn="@string/OFF"
+        android:textOff="@string/ON"
         />
 
 </RelativeLayout>
