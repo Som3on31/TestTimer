@@ -100,6 +100,8 @@ public class RegisterFragment extends Fragment {
                                     // Show toast message
                                     String successMsg = "Registration successful. Check your email.";
                                     Toast.makeText(getActivity(), successMsg, Toast.LENGTH_SHORT).show();
+                                    FirebaseAuth.getInstance().getCurrentUser().sendEmailVerification();
+
 
                                     //go to loginFragment
                                     NavHostFragment.findNavController(RegisterFragment.this)
