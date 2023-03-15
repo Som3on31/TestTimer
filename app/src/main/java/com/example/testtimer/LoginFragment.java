@@ -198,7 +198,7 @@ public class LoginFragment extends Fragment {
      * @return a boolean
      */
     private boolean checkEmail(String email){
-        if (email.length()==0){
+        if (email.isEmpty()){
             Toast.makeText(getContext(), "Email cannot be empty.", Toast.LENGTH_SHORT).show();
             return false;
         }

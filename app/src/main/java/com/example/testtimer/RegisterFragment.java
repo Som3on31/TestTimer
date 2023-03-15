@@ -15,6 +15,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.testtimer.databinding.FragmentRegisterBinding;
 import com.example.testtimer.objects.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterFragment extends Fragment {
@@ -86,13 +87,18 @@ public class RegisterFragment extends Fragment {
                 if (task.isSuccessful()){
                     User user = new User(firstName,lastName,birthday,email,username,password);
 
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("message");
+
+                    myRef.setValue("Hello, World!");
+
                     // Send data to the database
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(user).addOnCompleteListener(task1 -> {
                                 if (task1.isSuccessful()){
                                     // Show toast message
-                                    String successMsg = "Registration successful";
+                                    String successMsg = "Registration successful. Check your email.";
                                     Toast.makeText(getActivity(), successMsg, Toast.LENGTH_SHORT).show();
 
                                     //go to loginFragment
@@ -104,13 +110,10 @@ public class RegisterFragment extends Fragment {
                                 }
                             });
                 }else{
-                    Toast.makeText(getActivity(),"Cannot register",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"Cannot register.",Toast.LENGTH_SHORT).show();
                 }
             });
 
-
-            // Show toast message
-            Toast.makeText(getActivity(), "Registration successful", Toast.LENGTH_SHORT).show();
         });
     }
 
