@@ -93,8 +93,8 @@ public class TimerFragment extends Fragment {
         binding = null;
 
 //        user = null;
-//        ref = null;
-//        userID = null;
+////        ref = null;
+////        userID = null;
     }
 
     //methods for time here
