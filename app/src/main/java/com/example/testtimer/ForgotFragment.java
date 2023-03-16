@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.testtimer.databinding.FragmentForgotBinding;
-import com.example.testtimer.databinding.FragmentRegisterBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -60,7 +59,7 @@ public class ForgotFragment extends Fragment {
     }
 
     public void resetPassword(String email){
-        if(!isEmailVaild(email)) return;
+        if(!isEmailValid(email)) return;
 
         auth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
@@ -71,7 +70,7 @@ public class ForgotFragment extends Fragment {
         });
     }
 
-    public boolean isEmailVaild(String email){
+    public boolean isEmailValid(String email){
         if (email.length()==0) {
             Toast.makeText(getContext(),"Email cannot be empty.",Toast.LENGTH_SHORT).show();
             return false;

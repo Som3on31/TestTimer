@@ -10,12 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.testtimer.databinding.FragmentRestBinding;
+import com.example.testtimer.objects.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class RestFragment extends Fragment {
 
@@ -27,8 +36,19 @@ public class RestFragment extends Fragment {
     protected boolean isRunning = false;
 
     private CountDownTimer timer;
-    private TextView tw;
-    private int point = 0;
+
+    // get data from database
+    private FirebaseUser user;
+    private DatabaseReference ref;
+    private String userID;
+
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        ref = FirebaseDatabase.getInstance().getReference("Users");
+        userID = user.getUid();
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
@@ -39,6 +59,23 @@ public class RestFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view,savedInstanceState);
+
+        ref.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User currentUser = snapshot.getValue(User.class);
+
+                binding.points.setText(Integer.toString(currentUser.points));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(),error.getDetails(),Toast.LENGTH_SHORT);
+                NavHostFragment.findNavController(RestFragment.this)
+                        .navigate(R.id.action_restFragment_to_homeFragment);
+            }
+        });
+
 
         binding.timer.findViewById(R.id.timer);
 
@@ -76,6 +113,10 @@ public class RestFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+
+//        user = null;
+//        ref = null;
+//        userID = null;
     }
 
     //methods for time here
@@ -93,14 +134,26 @@ public class RestFragment extends Fragment {
             }
 
             public void onFinish() {
-//                tw.setText(TEST_WORD);
-
                 isRunning = false;
-                point += 15;
                 if (binding!=null) binding.startButton.setVisibility(View.VISIBLE);
 
+                //TODO: Update points via Firebase
+                ref.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User u = snapshot.getValue(User.class);
 
+                        u.points+= 10;
 
+                        binding.points.setText(Integer.toString(u.points));
+                        ref.child(userID).setValue(u);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(getContext(),error.getDetails(),Toast.LENGTH_SHORT);
+                    }
+                });
             }
 
         };

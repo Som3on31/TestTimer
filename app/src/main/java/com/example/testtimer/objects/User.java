@@ -10,6 +10,7 @@ public class User {
     public String password;
     public int points;
 
+    public User(){}
 
     public User(String fn,String ln,String bd,String email, String usn,String pw){
         first_name = fn;

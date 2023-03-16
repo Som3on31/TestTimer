@@ -3,6 +3,7 @@ package com.example.testtimer;
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,17 +63,38 @@ public class RegisterFragment extends Fragment {
             String email = binding.editEmail.getText().toString().trim();
             String birthday = binding.editBd.getText().toString().trim();
 
+            if(firstName.isEmpty()){
+                Toast.makeText(getContext(), "First name cannot be empty.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(lastName.isEmpty()){
+                Toast.makeText(getContext(), "Last name cannot be empty.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(username.isEmpty()){
+                Toast.makeText(getContext(), "username cannot be empty.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(password.isEmpty()){
+                Toast.makeText(getContext(),"password cannot be empty",Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(!isEmailValid(email)) return;
+            if(birthday.isEmpty()){
+                Toast.makeText(getContext(),"birthday must be specified",Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
             // Insert user input into database
-            ContentValues values = new ContentValues();
-            values.put(DatabaseHelper.COLUMN_FIRST_NAME, firstName);
-            values.put(DatabaseHelper.COLUMN_LAST_NAME, lastName);
-            values.put(DatabaseHelper.COLUMN_USERNAME, username);
-            values.put(DatabaseHelper.COLUMN_PASSWORD, password);
-            values.put(DatabaseHelper.COLUMN_EMAIL, email);
-            values.put(DatabaseHelper.COLUMN_BIRTHDAY, birthday);
-            database.insert(DatabaseHelper.TABLE_USERS, null, values);
-
-
+//            ContentValues values = new ContentValues();
+//            values.put(DatabaseHelper.COLUMN_FIRST_NAME, firstName);
+//            values.put(DatabaseHelper.COLUMN_LAST_NAME, lastName);
+//            values.put(DatabaseHelper.COLUMN_USERNAME, username);
+//            values.put(DatabaseHelper.COLUMN_PASSWORD, password);
+//            values.put(DatabaseHelper.COLUMN_EMAIL, email);
+//            values.put(DatabaseHelper.COLUMN_BIRTHDAY, birthday);
+//            database.insert(DatabaseHelper.TABLE_USERS, null, values);
 
             // Clear input fields
             binding.editFname.setText("");
@@ -127,5 +149,18 @@ public class RegisterFragment extends Fragment {
         database.close();
 
         binding = null;
+    }
+
+    //methods regarding registration
+    private boolean isEmailValid(String email){
+        if(email.isEmpty()){
+            Toast.makeText(getContext(),"Email cannot be empty",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            Toast.makeText(getContext(),"Please enter a vaild email.",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }
