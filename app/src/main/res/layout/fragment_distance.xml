@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/distance_bg"
+    android:background="@drawable/distance_bg2"
     tools:context=".DistanceFragment">
 
     <Button
@@ -17,55 +17,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ImageView
+        android:id="@+id/berry"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+
+        android:src="@drawable/distance2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/txt_move"
+        android:id="@+id/distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/jost"
-        android:text="@string/moveout"
-        android:textColor="@color/white"
-        android:textSize="25sp"
+        android:text="@string/distanceicon"
+        android:textColor="@color/black"
+        android:textSize="33sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.613"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.894" />
+        app:layout_constraintVertical_bias="0.04" />
 
-    <LinearLayout
-        android:id="@+id/layout_txtDistance"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_rect"
-        android:gravity="center"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:fontFamily="@font/mitr"
+        android:padding="20dp"
+        android:text="\t\tควรมีระยะห่างจากดวงตากับหน้าจอประมาณ 30–40 ซม. \nหรือ 1 ไม้บรรทัด ซึ่งเป็นระยะที่เหมาะสม และสามารถลดการเมื่อยล้าของดวงตาได้"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77">
-
-        <TextView
-            android:id="@+id/txt_distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/jost"
-            android:text="@string/distance"
-            android:textColor="#E31E10"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/cm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:fontFamily="@font/jost"
-            android:text="@string/cm"
-            android:textColor="#E31E10"
-            android:textSize="25sp" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/berry"
+        android:background="@drawable/round_rect"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
