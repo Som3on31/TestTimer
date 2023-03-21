@@ -84,6 +84,8 @@ public class RestFragment extends Fragment {
             if (!isRunning) {
                 isRunning = true;
                 binding.startButton.setVisibility(View.INVISIBLE);
+                binding.btnNoRest.setVisibility(View.INVISIBLE);
+
 
                 createTimer(inFuture);
                 timer.start();
@@ -93,12 +95,10 @@ public class RestFragment extends Fragment {
         binding.btnNoRest.setOnClickListener(View -> {
             NavHostFragment.findNavController(RestFragment.this)
                     .navigate(R.id.action_restFragment_to_timerFragment);
+
         });
 
-        binding.btnReward.setOnClickListener(View -> {
-            NavHostFragment.findNavController(RestFragment.this)
-                    .navigate(R.id.action_restFragment_to_rewardFragment);
-        });
+
 
         binding.button.setVisibility(View.VISIBLE);
         binding.button.setOnClickListener(View -> {
@@ -136,6 +136,8 @@ public class RestFragment extends Fragment {
             public void onFinish() {
                 isRunning = false;
                 if (binding!=null) binding.startButton.setVisibility(View.VISIBLE);
+                if (binding!=null) binding.btnNoRest.setVisibility(View.VISIBLE);
+
 
                 //TODO: Update points via Firebase
                 ref.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
